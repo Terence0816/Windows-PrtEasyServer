@@ -41,6 +41,14 @@ PrtEasyServer turns a Windows local printer into a TCP/IP network printer server
 
 ![English Web Page](./assets/screenshots/web-en.png)
 
+## Video Demo
+
+Click the preview below to watch the YouTube demo:
+
+[![Watch the PrtEasyServer demo on YouTube](https://img.youtube.com/vi/uwNWGIuaMrA/hqdefault.jpg)](https://youtu.be/uwNWGIuaMrA)
+
+- YouTube: [https://youtu.be/uwNWGIuaMrA](https://youtu.be/uwNWGIuaMrA)
+
 ## Download
 
 - Latest releases: [Releases](https://github.com/Terence0816/Windows-PrtEasyServer/releases)
@@ -110,6 +118,14 @@ PrtEasyServer 是一個 Windows 網路印表機伺服器，可以把本機印表
 ### 英文網頁介面
 
 ![英文網頁介面](./assets/screenshots/web-en.png)
+
+## 影片示範
+
+點擊下方預覽圖即可開啟 YouTube 示範影片：
+
+[![觀看 PrtEasyServer YouTube 示範影片](https://img.youtube.com/vi/uwNWGIuaMrA/hqdefault.jpg)](https://youtu.be/uwNWGIuaMrA)
+
+- YouTube 影片連結：[https://youtu.be/uwNWGIuaMrA](https://youtu.be/uwNWGIuaMrA)
 
 ## 下載
 
