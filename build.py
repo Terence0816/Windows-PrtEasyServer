@@ -1,143 +1,153 @@
 #!/usr/bin/env python3
 """
 Unified Build Script for PrtEasyServer
-Builds the main GUI executable
+Builds the main GUI executable and embeds Windows version metadata.
 """
 
 import os
-import sys
-import subprocess
 import shutil
-import psutil
+import subprocess
+import sys
+import tempfile
+import textwrap
 import time
 
+import psutil
+
 APP_NAME = "PrtEasyServer"
-LEGACY_APP_NAME = "PrinterOne"
+APP_TITLE = "PrtEasyServer - Windows Network Print Server"
+APP_REPO_NAME = "Windows-PrtEasyServer"
+APP_GITHUB_URL = "https://github.com/Terence0816/Windows-PrtEasyServer"
+APP_VERSION = "1.1.0.0"
+APP_VERSION_TAG = f"v{APP_VERSION}"
 APP_EXE = f"{APP_NAME}.exe"
+
+COMPANY_NAME = "Terence0816"
+FILE_DESCRIPTION = APP_TITLE
+PRODUCT_NAME = APP_REPO_NAME
+BUILD_COPYRIGHT = "Copyright (c) 2026 Terence0816"
+WINDOWS_COPYRIGHT = APP_GITHUB_URL
+COMMENTS = "Copyright (c) 2026 Terence0816. This project is based on PrinterOne by xtieume."
+LEGACY_APP_NAME = "PrinterOne"
 LEGACY_EXE = f"{LEGACY_APP_NAME}.exe"
 
+
+def version_tuple(version_text):
+    """Convert a dotted version string to a 4-int tuple."""
+    parts = [int(part) for part in str(version_text).strip().split(".") if part != ""]
+    while len(parts) < 4:
+        parts.append(0)
+    return tuple(parts[:4])
+
+
+def build_metadata():
+    """Return the Windows version resource fields."""
+    return {
+        "CompanyName": COMPANY_NAME,
+        "FileDescription": FILE_DESCRIPTION,
+        "FileVersion": APP_VERSION,
+        "InternalName": APP_NAME,
+        "OriginalFilename": APP_EXE,
+        "ProductName": PRODUCT_NAME,
+        "ProductVersion": APP_VERSION,
+        "LegalCopyright": WINDOWS_COPYRIGHT,
+        "Comments": COMMENTS,
+    }
+
+
+def create_version_file():
+    """Create a temporary PyInstaller version file."""
+    version_parts = version_tuple(APP_VERSION)
+    metadata = build_metadata()
+    template = textwrap.dedent(
+        f"""
+        VSVersionInfo(
+          ffi=FixedFileInfo(
+            filevers={version_parts},
+            prodvers={version_parts},
+            mask=0x3F,
+            flags=0x0,
+            OS=0x40004,
+            fileType=0x1,
+            subtype=0x0,
+            date=(0, 0)
+          ),
+          kids=[
+            StringFileInfo([
+              StringTable(
+                '040904B0',
+                [
+                  StringStruct('CompanyName', {metadata["CompanyName"]!r}),
+                  StringStruct('FileDescription', {metadata["FileDescription"]!r}),
+                  StringStruct('FileVersion', {metadata["FileVersion"]!r}),
+                  StringStruct('InternalName', {metadata["InternalName"]!r}),
+                  StringStruct('OriginalFilename', {metadata["OriginalFilename"]!r}),
+                  StringStruct('ProductName', {metadata["ProductName"]!r}),
+                  StringStruct('ProductVersion', {metadata["ProductVersion"]!r}),
+                  StringStruct('LegalCopyright', {metadata["LegalCopyright"]!r}),
+                  StringStruct('Comments', {metadata["Comments"]!r})
+                ]
+              )
+            ]),
+            VarFileInfo([VarStruct('Translation', [1033, 1200])])
+          ]
+        )
+        """
+    ).strip()
+
+    handle = tempfile.NamedTemporaryFile(
+        mode="w",
+        encoding="utf-8",
+        suffix="_version_info.txt",
+        delete=False,
+    )
+    with handle:
+        handle.write(template)
+        handle.write("\n")
+    return handle.name
+
+
 def install_requirements():
-    """Install required packages"""
+    """Install required packages."""
     print("Installing requirements...")
     try:
-        subprocess.run([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"], check=True)
+        subprocess.run(
+            [sys.executable, "-m", "pip", "install", "-r", "requirements.txt"],
+            check=True,
+        )
         print("[OK] Requirements installed successfully")
-    except subprocess.CalledProcessError as e:
-        print(f"[ERROR] Error installing requirements: {e}")
+    except subprocess.CalledProcessError as error:
+        print(f"[ERROR] Error installing requirements: {error}")
         return False
     return True
 
-def clean_build():
-    """Clean previous build files"""
-    print("Cleaning previous build...")
-    try:
-        # Kill any running processes first
-        kill_running_processes()
-        
-        # Clean build folders
-        if os.path.exists("build"):
-            shutil.rmtree("build")
-        if os.path.exists("dist"):
-            # Try to remove dist folder, handle permission errors
-            try:
-                shutil.rmtree("dist")
-            except PermissionError:
-                print("[WARNING]  Permission denied removing dist folder, trying to force...")
-                # Try to remove individual files first
-                for root, dirs, files in os.walk("dist", topdown=False):
-                    for file in files:
-                        filepath = os.path.join(root, file)
-                        force_remove_file(filepath)
-                    for dir in dirs:
-                        try:
-                            os.rmdir(os.path.join(root, dir))
-                        except:
-                            pass
-                # Try to remove the folder again
-                try:
-                    os.rmdir("dist")
-                except:
-                    print("[WARNING]  Could not fully clean dist folder, continuing...")
-        
-        # Clean spec files
-        spec_files = ["PrtEasyServer.spec", "PrinterOne.spec", "PrinterOneManager.spec"]
-        for spec_file in spec_files:
-            if os.path.exists(spec_file):
-                force_remove_file(spec_file)
-        
-        print("[OK] Build cleaned successfully")
+
+def force_remove_file(filepath):
+    """Force remove a file, trying multiple methods."""
+    if not os.path.exists(filepath):
         return True
-    except Exception as e:
-        print(f"[ERROR] Error cleaning build: {e}")
-        return False
 
-
-def build_gui_exe():
-    """Build the PrtEasyServer GUI executable (includes integrated server)."""
-    print(f"Building {APP_NAME} GUI executable...")
-    
-    # Kill processes and clean up before building
-    kill_running_processes()
-    
-    # Force remove existing executable if it exists
-    gui_exe_path = os.path.join("dist", APP_EXE)
-    if os.path.exists(gui_exe_path):
-        print(f"Removing existing {gui_exe_path}...")
-        force_remove_file(gui_exe_path)
-    
     try:
-        cmd = [
-            sys.executable, "-m", "PyInstaller",
-            "--onefile",
-            "--noconsole",
-            f"--name={APP_NAME}",
-            "--icon=printer.ico",  # Sử dụng file .ico đúng chuẩn Windows
-            "--add-data=config.json;.",
-            "--add-data=printer.png;.",  # Đóng gói luôn file PNG vào exe
-            "--hidden-import=pystray",
-            "--hidden-import=PIL",
-            "--hidden-import=PIL.Image",
-            "--hidden-import=psutil",
-            "--hidden-import=win32print",
-            "--hidden-import=win32api", 
-            "--hidden-import=win32con",
-            "--hidden-import=winreg",
-            "server.py"
-        ]
-        
-        subprocess.run(cmd, check=True)
-        print(f"[OK] {APP_NAME} GUI executable built successfully")
+        os.remove(filepath)
         return True
-    except subprocess.CalledProcessError as e:
-        print(f"[ERROR] Error building {APP_NAME} executable: {e}")
+    except PermissionError:
+        print(f"[WARNING] Permission denied for {filepath} - file may be in use")
+        return False
+    except Exception as error:
+        print(f"[ERROR] Error removing {filepath}: {error}")
         return False
 
-def check_gui_executable():
-    """Check if GUI executable was built successfully."""
-    print(f"Checking {APP_NAME} executable...")
-    try:
-        exe_path = os.path.join("dist", APP_EXE)
-        if os.path.exists(exe_path):
-            file_size = os.path.getsize(exe_path)
-            print(f"[OK] {APP_EXE} built successfully ({file_size:,} bytes)")
-            return True
-        else:
-            print(f"[ERROR] {APP_EXE} not found in dist directory")
-            return False
-    except Exception as e:
-        print(f"[ERROR] Error checking executable: {e}")
-        return False
 
 def kill_running_processes():
     """Kill any running PrtEasyServer or legacy PrinterOne processes."""
     print(f"Checking for running {APP_NAME} processes...")
     killed_count = 0
-    
+
     try:
-        for proc in psutil.process_iter(['pid', 'name', 'exe']):
+        for proc in psutil.process_iter(["pid", "name", "exe"]):
             try:
-                process_name = proc.info['name'].lower()
-                
+                process_name = (proc.info["name"] or "").lower()
+
                 if process_name in {APP_EXE.lower(), LEGACY_EXE.lower()}:
                     print(f"Killing process: {proc.info['name']} (PID: {proc.info['pid']})")
                     proc.terminate()
@@ -147,12 +157,10 @@ def kill_running_processes():
                         proc.kill()
                         proc.wait(timeout=2)
                     killed_count += 1
-                    
-                # Also check for Python processes running server.py
-                elif process_name == 'python.exe' and proc.info['exe']:
+                elif process_name == "python.exe" and proc.info["exe"]:
                     try:
-                        cmdline = ' '.join(proc.cmdline())
-                        if 'server.py' in cmdline:
+                        cmdline = " ".join(proc.cmdline())
+                        if "server.py" in cmdline:
                             print(f"Killing Python process running server.py: PID {proc.info['pid']}")
                             proc.terminate()
                             try:
@@ -163,88 +171,177 @@ def kill_running_processes():
                             killed_count += 1
                     except (psutil.AccessDenied, psutil.NoSuchProcess):
                         pass
-                        
             except (psutil.NoSuchProcess, psutil.AccessDenied):
                 pass
-                
-    except Exception as e:
-        print(f"Error killing processes: {e}")
-    
+    except Exception as error:
+        print(f"Error killing processes: {error}")
+
     if killed_count > 0:
         print(f"[OK] Killed {killed_count} process(es)")
-        # Wait a moment for processes to fully terminate and files to be released
         time.sleep(2)
     else:
         print("[OK] No running processes found")
-    
+
     return killed_count > 0
 
 
-def force_remove_file(filepath):
-    """Force remove a file, trying multiple methods"""
-    if not os.path.exists(filepath):
-        return True
-        
+def clean_build():
+    """Clean previous build files."""
+    print("Cleaning previous build...")
     try:
-        # First try normal removal
-        os.remove(filepath)
+        kill_running_processes()
+
+        if os.path.exists("build"):
+            shutil.rmtree("build")
+        if os.path.exists("dist"):
+            try:
+                shutil.rmtree("dist")
+            except PermissionError:
+                print("[WARNING] Permission denied removing dist folder, trying to force...")
+                for root, dirs, files in os.walk("dist", topdown=False):
+                    for filename in files:
+                        force_remove_file(os.path.join(root, filename))
+                    for dirname in dirs:
+                        try:
+                            os.rmdir(os.path.join(root, dirname))
+                        except OSError:
+                            pass
+                try:
+                    os.rmdir("dist")
+                except OSError:
+                    print("[WARNING] Could not fully clean dist folder, continuing...")
+
+        for spec_file in ["PrtEasyServer.spec", "PrinterOne.spec", "PrinterOneManager.spec"]:
+            if os.path.exists(spec_file):
+                force_remove_file(spec_file)
+
+        print("[OK] Build cleaned successfully")
         return True
-    except PermissionError:
-        print(f"[WARNING]  Permission denied for {filepath} - file may be in use")
-        return False
-    except Exception as e:
-        print(f"[ERROR] Error removing {filepath}: {e}")
+    except Exception as error:
+        print(f"[ERROR] Error cleaning build: {error}")
         return False
 
+
+def build_gui_exe():
+    """Build the PrtEasyServer GUI executable with embedded version info."""
+    print(f"Building {APP_NAME} GUI executable...")
+    kill_running_processes()
+
+    gui_exe_path = os.path.join("dist", APP_EXE)
+    if os.path.exists(gui_exe_path):
+        print(f"Removing existing {gui_exe_path}...")
+        force_remove_file(gui_exe_path)
+
+    version_file = create_version_file()
+    try:
+        cmd = [
+            sys.executable,
+            "-m",
+            "PyInstaller",
+            "--onefile",
+            "--noconsole",
+            f"--name={APP_NAME}",
+            "--icon=printer.ico",
+            "--add-data=config.json;.",
+            "--add-data=printer.png;.",
+            f"--version-file={version_file}",
+            "--hidden-import=pystray",
+            "--hidden-import=PIL",
+            "--hidden-import=PIL.Image",
+            "--hidden-import=psutil",
+            "--hidden-import=win32print",
+            "--hidden-import=win32api",
+            "--hidden-import=win32con",
+            "--hidden-import=winreg",
+            "server.py",
+        ]
+
+        subprocess.run(cmd, check=True)
+        print(f"[OK] {APP_NAME} GUI executable built successfully")
+        return True
+    except subprocess.CalledProcessError as error:
+        print(f"[ERROR] Error building {APP_NAME} executable: {error}")
+        return False
+    finally:
+        force_remove_file(version_file)
+
+
+def check_gui_executable():
+    """Check if GUI executable was built successfully."""
+    print(f"Checking {APP_NAME} executable...")
+    try:
+        exe_path = os.path.join("dist", APP_EXE)
+        if os.path.exists(exe_path):
+            file_size = os.path.getsize(exe_path)
+            print(f"[OK] {APP_EXE} built successfully ({file_size:,} bytes)")
+            return True
+        print(f"[ERROR] {APP_EXE} not found in dist directory")
+        return False
+    except Exception as error:
+        print(f"[ERROR] Error checking executable: {error}")
+        return False
+
+
+def print_build_summary():
+    """Print a concise release summary after a successful build."""
+    metadata = build_metadata()
+    print()
+    print("[SUCCESS] Build completed successfully!")
+    print(f"[VERSION] Release version: {APP_VERSION_TAG}")
+    print(f"[OUTPUT] dist\\{APP_EXE}")
+    print("[EXE INFO] Embedded Windows file details:")
+    print(f"  - ProductName: {metadata['ProductName']}")
+    print(f"  - FileDescription: {metadata['FileDescription']}")
+    print(f"  - CompanyName: {metadata['CompanyName']}")
+    print(f"  - FileVersion: {metadata['FileVersion']}")
+    print(f"  - ProductVersion: {metadata['ProductVersion']}")
+    print(f"  - OriginalFilename: {metadata['OriginalFilename']}")
+    print(f"  - Copyright: {metadata['LegalCopyright']}")
+    print()
+    print("Usage:")
+    print(f"  - Double-click {APP_EXE} to launch the GUI")
+    print("  - Sign the EXE after build if you are publishing a release")
+    print(f"  - Create the GitHub release tag as {APP_VERSION_TAG} when ready")
+    print()
+
+
 def main():
-    """Main build function"""
+    """Main build function."""
     print(f"{APP_NAME} - Unified Build Script")
     print("=================================")
     print()
-    print("Copyright (c) 2026 Terence0816")
-    print("GitHub: https://github.com/Terence0816/Windows-PrtEasyServer")
+    print(f"Version: {APP_VERSION_TAG}")
+    print(BUILD_COPYRIGHT)
+    print(f"GitHub: {APP_GITHUB_URL}")
     print()
-    print("This project is based on PrinterOne by xtieume.")
+    print(COMMENTS)
     print("Original project: https://github.com/xtieume/PrinterOne")
     print()
-    
-    # Install requirements
+
     if not install_requirements():
-        return
-    
-    # Clean previous build (skip if files are in use)
+        return 1
+
     try:
         clean_build()
-    except Exception as e:
-        print(f"[WARNING]  Some files could not be cleaned: {e}")
+    except Exception as error:
+        print(f"[WARNING] Some files could not be cleaned: {error}")
         print("Trying to kill processes and continue...")
         kill_running_processes()
         time.sleep(1)
-    
-    # Build GUI executable (includes integrated server)
+
     print(f"\n[BUILD] Building {APP_NAME} GUI executable...")
     if not build_gui_exe():
         print("[ERROR] Failed to build GUI executable. Stopping build process.")
         return 1
-    
-    # Check executable
+
     print("\n[VERIFY] Verifying build results...")
     if not check_gui_executable():
         print("[ERROR] Build verification failed. Executable is missing.")
         return 1
-    
-    print()
-    print("[SUCCESS] Build completed successfully!")
-    print("[FOLDER] Generated file in dist/ folder:")
-    print(f"  • dist/{APP_EXE} (GUI application with integrated server)")
-    print()
-    print("Usage:")
-    print(f"  • Double-click {APP_EXE} to launch the GUI")
-    print("  • The GUI includes server management, test client, and settings")
-    print("  • Server will auto-start when printer is configured")
-    print()
+
+    print_build_summary()
     return 0
 
+
 if __name__ == "__main__":
-    exit_code = main()
-    sys.exit(exit_code if exit_code is not None else 0)
+    sys.exit(main() or 0)

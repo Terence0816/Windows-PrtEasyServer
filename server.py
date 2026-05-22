@@ -20,10 +20,12 @@ import html
 import base64
 import ctypes
 import locale
+import shutil
 import psutil
 import winreg
 import traceback
 import re
+import zipfile
 from datetime import datetime, timedelta
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse, quote
@@ -183,7 +185,7 @@ TRANSLATIONS = {
         "language_label": "介面語系：",
         "button_apply_language": "套用語系",
         "frame_about": "關於",
-        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。\n\nThis project is based on PrinterOne by xtieume.\nOriginal project: https://github.com/xtieume/PrinterOne",
+        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。\n\nThis project is based on PrinterOne by xtieume.\nOriginal project: https://github.com/xtieume/PrinterOne",
         "startup_enabled": "[OK] 已啟用開機自動啟動",
         "startup_disabled": "[STOP] 未啟用開機自動啟動",
         "server_info_started": "已啟動 {count} 組",
@@ -284,7 +286,7 @@ TRANSLATIONS = {
         "language_label": "Interface Language:",
         "button_apply_language": "Apply Language",
         "frame_about": "About",
-        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns local Windows printers into network IP printers.\nIt supports RAW 9100 printing without Windows network sharing, SMB, or account/password prompts.\n\nThis project is based on PrinterOne by xtieume.\nOriginal project: https://github.com/xtieume/PrinterOne",
+        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns local Windows printers into network IP printers.\nIt supports RAW 9100 printing without Windows network sharing, SMB, or account/password prompts.\n\nThis project is based on PrinterOne by xtieume.\nOriginal project: https://github.com/xtieume/PrinterOne",
         "startup_enabled": "[OK] Startup is enabled",
         "startup_disabled": "[STOP] Startup is disabled",
         "server_info_started": "{count} printer servers active",
@@ -401,7 +403,7 @@ TRANSLATIONS = {
         "language_label": "介面語言:",
         "button_apply_language": "套用語言",
         "frame_about": "關於",
-        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。\n\nThis project is based on PrinterOne by xtieume.\nOriginal project: https://github.com/xtieume/PrinterOne",
+        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。\n\nThis project is based on PrinterOne by xtieume.\nOriginal project: https://github.com/xtieume/PrinterOne",
         "startup_enabled": "[OK] 已加入開機自動啟動",
         "startup_disabled": "[STOP] 未啟用開機自動啟動",
         "server_info_started": "已啟動 {count} 組",
@@ -552,7 +554,7 @@ TRANSLATIONS = {
         "language_label": "Interface language:",
         "button_apply_language": "Apply Language",
         "frame_about": "About",
-        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns a local Windows printer into an IP printer.\nIt supports RAW 9100 printing without Windows file sharing, SMB, or network credentials.\n\nThis project is based on PrinterOne by xtieume.\nOriginal project: https://github.com/xtieume/PrinterOne",
+        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns a local Windows printer into an IP printer.\nIt supports RAW 9100 printing without Windows file sharing, SMB, or network credentials.\n\nThis project is based on PrinterOne by xtieume.\nOriginal project: https://github.com/xtieume/PrinterOne",
         "startup_enabled": "[OK] Added to Windows startup",
         "startup_disabled": "[STOP] Windows startup disabled",
         "server_info_started": "Started {count} printer server(s)",
@@ -666,6 +668,34 @@ TRANSLATIONS = {
         "autostart_check_failed": "Failed to check Windows startup status: {error}",
     },
 }
+
+TRANSLATIONS["zh-TW"].update(
+    {
+        "web_intro_3": "設定檔及驅動程式建議放在同個目錄以便快速安裝。",
+        "web_download_driver": "下載驅動程式",
+        "driver_prepare_background": "[DRIVER] 已在背景開始準備 {count} 個驅動程式壓縮檔。",
+        "driver_package_exists": "[DRIVER] 已存在驅動程式壓縮檔：{file}",
+        "driver_package_creating": "[DRIVER] 正在打包驅動程式：{driver} -> {file}",
+        "driver_package_ready": "[DRIVER] 驅動程式壓縮檔已完成：{file}",
+        "driver_package_failed": "[WARN] 驅動程式打包失敗：{driver} - {error}",
+        "web_driver_download_logged": "[WEB] 已提供印表機{index} 的驅動程式壓縮檔：{file}",
+        "web_driver_download_missing": "[WARN] 印表機{index} 的驅動程式壓縮檔目前無法提供：{error}",
+    }
+)
+
+TRANSLATIONS["en"].update(
+    {
+        "web_intro_3": "Keep the setup file and the driver package in the same folder for faster installation.",
+        "web_download_driver": "Download Driver",
+        "driver_prepare_background": "[DRIVER] Background packaging started for {count} driver archive(s).",
+        "driver_package_exists": "[DRIVER] Driver archive already exists: {file}",
+        "driver_package_creating": "[DRIVER] Packaging driver: {driver} -> {file}",
+        "driver_package_ready": "[DRIVER] Driver archive is ready: {file}",
+        "driver_package_failed": "[WARN] Driver packaging failed: {driver} - {error}",
+        "web_driver_download_logged": "[WEB] Served the driver archive for printer {index}: {file}",
+        "web_driver_download_missing": "[WARN] The driver archive for printer {index} is not available yet: {error}",
+    }
+)
 
 def normalize_language(language):
     """Normalize user/system language values into one of the supported codes."""
@@ -865,7 +895,6 @@ class PrinterOneServer:
             ],
             capture_output=True,
             text=True,
-            encoding="utf-8",
             errors="ignore",
             **get_hidden_subprocess_kwargs(),
         )
@@ -1239,13 +1268,40 @@ class PrinterOneServer:
                 "if (-not (Get-PrinterPort -Name $portName -ErrorAction SilentlyContinue)) {",
                 "    Add-PrinterPort -Name $portName -PrinterHostAddress $targetHost -PortNumber $portNumber",
                 "}",
-                "$driverExists = Get-PrinterDriver -Name $driverName -ErrorAction SilentlyContinue",
-                "if (-not $driverExists) {",
-                "    $driverExists = Get-PrinterDriver -ErrorAction SilentlyContinue |",
-                "        Where-Object { $_.Name -eq $driverName -or $_.Name -like ($driverName + '*') -or $driverName -like ($_.Name + '*') } |",
-                "        Select-Object -First 1",
-                "    if ($driverExists) {",
-                "        $driverName = $driverExists.Name",
+                "function Resolve-Driver($targetName) {",
+                "    if ([string]::IsNullOrWhiteSpace($targetName)) {",
+                "        return $null",
+                "    }",
+                "    $matched = Get-PrinterDriver -Name $targetName -ErrorAction SilentlyContinue",
+                "    if (-not $matched) {",
+                "        $matched = Get-PrinterDriver -ErrorAction SilentlyContinue |",
+                "            Where-Object { $_.Name -eq $targetName -or $_.Name -like ($targetName + '*') -or $targetName -like ($_.Name + '*') } |",
+                "            Select-Object -First 1",
+                "    }",
+                "    return $matched",
+                "}",
+                "$driverExists = Resolve-Driver $driverName",
+                "if ($driverExists) {",
+                "    $driverName = $driverExists.Name",
+                "}",
+                "if (-not $driverExists -and (Test-Path -LiteralPath $driverArchivePath)) {",
+                "    try {",
+                "        if (Test-Path -LiteralPath $driverTempRoot) {",
+                "            Remove-Item -LiteralPath $driverTempRoot -Recurse -Force",
+                "        }",
+                "        Expand-Archive -LiteralPath $driverArchivePath -DestinationPath $driverTempRoot -Force",
+                "        $infWildcard = Join-Path -Path $driverTempRoot -ChildPath '*.inf'",
+                "        & pnputil.exe /add-driver $infWildcard /subdirs /install | Out-Null",
+                "        Start-Sleep -Milliseconds 800",
+                "        $driverExists = Resolve-Driver $driverName",
+                "        if ($driverExists) {",
+                "            $driverName = $driverExists.Name",
+                "        }",
+                "    } catch {",
+                "    } finally {",
+                "        if (Test-Path -LiteralPath $driverTempRoot) {",
+                "            try { Remove-Item -LiteralPath $driverTempRoot -Recurse -Force } catch {}",
+                "        }",
                 "    }",
                 "}",
                 "$openPrintersFolder = {",
@@ -1290,19 +1346,30 @@ class PrinterOneServer:
             ]
         )
         encoded_command = base64.b64encode(powershell_script.encode("utf-16le")).decode("ascii")
+        encoded_chunks = [encoded_command[i:i + 240] for i in range(0, len(encoded_command), 240)]
 
         lines = [
             "@echo off",
             "setlocal",
-            f'set "ENCODED_COMMAND={encoded_command}"',
             "",
-            "powershell -NoProfile -ExecutionPolicy Bypass -EncodedCommand %ENCODED_COMMAND%",
-            "if errorlevel 1 exit /b 1",
-            "",
-            "endlocal",
-            "exit /b 0",
-            "",
+            'set "B64FILE=%TEMP%\\PrtEasyServer_%RANDOM%_%RANDOM%.b64"',
+            '> "%B64FILE%" (',
         ]
+        lines.extend([f"echo {chunk}" for chunk in encoded_chunks])
+        lines.extend(
+            [
+                ")",
+                "",
+                "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$encoded = ((Get-Content -LiteralPath $env:B64FILE -Raw) -replace '\\s',''); $script = [Text.Encoding]::Unicode.GetString([Convert]::FromBase64String($encoded)); & ([scriptblock]::Create($script))\"",
+                'set "ERR=%ERRORLEVEL%"',
+                'del "%B64FILE%" >nul 2>nul',
+                'if not "%ERR%"=="0" exit /b %ERR%',
+                "",
+                "endlocal",
+                "exit /b 0",
+                "",
+            ]
+        )
 
         safe_index = entry["index"]
         safe_port = entry["port"]
@@ -2803,7 +2870,7 @@ class PrinterOneGUI:
         about_frame.pack(fill=tk.X, padx=10, pady=(0, 10))
         
         about_text = """PrtEasyServer - Windows 網路印表機伺服器
-版本 1.0
+版本 1.1.0.0
 Copyright (c) 2026 Terence0816
 GitHub: https://github.com/Terence0816/Windows-PrtEasyServer
 
@@ -3198,6 +3265,11 @@ If you can see this printed output, the PrtEasyServer server is working correctl
 class PrinterOneServer(PrinterOneServer):
     """Localized server behavior and web/BAT output."""
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.driver_package_lock = threading.Lock()
+        self.driver_package_thread = None
+
     def ensure_firewall_rules(self, printer_configs=None, trigger=""):
         printer_configs = printer_configs if printer_configs is not None else self.get_active_printer_configs()
         web_port = self.get_web_port()
@@ -3269,6 +3341,239 @@ class PrinterOneServer(PrinterOneServer):
 
         return all_ok
 
+    def sanitize_driver_archive_name(self, driver_name):
+        """Return a filesystem-safe driver ZIP name while preserving readability."""
+        cleaned = re.sub(r'[<>:"/\\|?*]+', " ", str(driver_name or "").strip())
+        cleaned = cleaned.replace("\0", " ")
+        cleaned = re.sub(r"\s+", " ", cleaned).strip(" .")
+        return cleaned or "Printer Driver"
+
+    def get_driver_archive_filename(self, driver_name):
+        """Return the ZIP filename for a packaged printer driver."""
+        return f"{self.sanitize_driver_archive_name(driver_name)}.zip"
+
+    def get_driver_archive_path(self, driver_name):
+        """Return the absolute ZIP path in the application directory."""
+        return os.path.join(get_app_directory(), self.get_driver_archive_filename(driver_name))
+
+    def get_web_printer_entries(self):
+        entries = super().get_web_printer_entries()
+        for entry in entries:
+            archive_name = self.get_driver_archive_filename(entry.get("driver_name", ""))
+            archive_path = os.path.join(get_app_directory(), archive_name)
+            entry["driver_archive_name"] = archive_name
+            entry["driver_archive_path"] = archive_path
+            entry["driver_archive_ready"] = os.path.exists(archive_path)
+        return entries
+
+    def find_driver_package_info(self, driver_name):
+        """Resolve the installed printer driver and its INF path."""
+        escaped_name = self.escape_ps_single_quote(driver_name)
+        script = "\n".join(
+            [
+                "$ErrorActionPreference = 'Stop'",
+                f"$driverName = '{escaped_name}'",
+                "$driver = Get-PrinterDriver -Name $driverName -ErrorAction SilentlyContinue",
+                "if (-not $driver) {",
+                "    $driver = Get-PrinterDriver -ErrorAction SilentlyContinue |",
+                "        Where-Object { $_.Name -eq $driverName -or $_.Name -like ($driverName + '*') -or $driverName -like ($_.Name + '*') } |",
+                "        Select-Object -First 1",
+                "}",
+                "if ($driver) {",
+                "    $resolvedName = $driver.Name",
+                "    $infPath = $null",
+                "    try { $infPath = $driver.InfPath } catch {}",
+                "    if (-not $infPath) {",
+                "        $cimDriver = Get-CimInstance Win32_PrinterDriver -ErrorAction SilentlyContinue |",
+                "            Where-Object { $_.Name -eq $resolvedName } |",
+                "            Select-Object -First 1",
+                "        if ($cimDriver -and $cimDriver.InfName) {",
+                "            $infPath = $cimDriver.InfName",
+                "        }",
+                "    }",
+                "    [pscustomobject]@{ Name = $resolvedName; InfPath = [string]$infPath } | ConvertTo-Json -Compress",
+                "}",
+            ]
+        )
+
+        result = self.run_powershell(script)
+        output = (result.stdout or "").strip()
+        if result.returncode != 0:
+            error_text = (result.stderr or output or f"returncode={result.returncode}").strip()
+            return None, error_text
+        if not output:
+            return None, "Driver information was not found."
+
+        try:
+            payload = json.loads(output.splitlines()[-1])
+        except json.JSONDecodeError:
+            return None, output
+
+        resolved_name = str(payload.get("Name") or driver_name).strip() or driver_name
+        inf_path = str(payload.get("InfPath") or "").strip()
+        inf_name = os.path.basename(inf_path)
+        source_folder = ""
+        if inf_path and os.path.isabs(inf_path) and os.path.exists(inf_path):
+            source_folder = os.path.dirname(inf_path)
+        if not inf_name:
+            return None, "The installed printer driver does not expose an INF path."
+
+        return {
+            "driver_name": resolved_name,
+            "inf_name": inf_name,
+            "inf_path": inf_path,
+            "source_folder": source_folder,
+        }, ""
+
+    def _ensure_driver_archive_for_entry_unlocked(self, entry):
+        driver_name = str(entry.get("driver_name", "")).strip()
+        archive_name = entry.get("driver_archive_name") or self.get_driver_archive_filename(driver_name)
+        archive_path = entry.get("driver_archive_path") or os.path.join(get_app_directory(), archive_name)
+
+        if os.path.exists(archive_path):
+            return archive_path, archive_name, "exists"
+
+        driver_info, error_text = self.find_driver_package_info(driver_name)
+        if not driver_info:
+            return None, archive_name, error_text or "Driver information was not found."
+
+        temp_zip_path = f"{archive_path}.part"
+        try:
+            source_folder = driver_info.get("source_folder", "")
+            exported_root = ""
+            if source_folder and os.path.isdir(source_folder):
+                exported_root = source_folder
+            else:
+                with tempfile.TemporaryDirectory(prefix=f"{APP_NAME}_driver_") as temp_root:
+                    export_dir = os.path.join(temp_root, "export")
+                    os.makedirs(export_dir, exist_ok=True)
+
+                    export_result = subprocess.run(
+                        ["pnputil.exe", "/export-driver", driver_info["inf_name"], export_dir],
+                        capture_output=True,
+                        text=True,
+                        errors="ignore",
+                        **get_hidden_subprocess_kwargs(),
+                    )
+                    if export_result.returncode != 0:
+                        error_text = (
+                            export_result.stderr
+                            or export_result.stdout
+                            or f"returncode={export_result.returncode}"
+                        ).strip()
+                        return None, archive_name, error_text
+
+                    exported_root = export_dir
+                    exported_files = []
+                    for root, _, filenames in os.walk(exported_root):
+                        for filename in filenames:
+                            full_path = os.path.join(root, filename)
+                            relative_path = os.path.relpath(full_path, exported_root)
+                            exported_files.append((full_path, relative_path))
+
+                    if not exported_files:
+                        return None, archive_name, "No driver files were exported."
+
+                    with zipfile.ZipFile(temp_zip_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+                        for full_path, relative_path in exported_files:
+                            archive.write(full_path, relative_path)
+
+                    os.replace(temp_zip_path, archive_path)
+                    return archive_path, archive_name, "created"
+
+            exported_files = []
+            for root, _, filenames in os.walk(exported_root):
+                for filename in filenames:
+                    full_path = os.path.join(root, filename)
+                    relative_path = os.path.relpath(full_path, exported_root)
+                    exported_files.append((full_path, relative_path))
+
+            if not exported_files:
+                return None, archive_name, "No driver files were exported."
+
+            with zipfile.ZipFile(temp_zip_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+                for full_path, relative_path in exported_files:
+                    archive.write(full_path, relative_path)
+
+            os.replace(temp_zip_path, archive_path)
+            return archive_path, archive_name, "created"
+        except Exception as e:
+            return None, archive_name, str(e)
+        finally:
+            if os.path.exists(temp_zip_path):
+                try:
+                    os.remove(temp_zip_path)
+                except OSError:
+                    pass
+
+    def ensure_driver_archive_for_entry(self, entry):
+        with self.driver_package_lock:
+            return self._ensure_driver_archive_for_entry_unlocked(entry)
+
+    def ensure_driver_archive_for_index(self, printer_index):
+        entry = next((item for item in self.get_web_printer_entries() if item["index"] == printer_index), None)
+        if not entry:
+            raise KeyError("printer_not_found")
+
+        archive_path, archive_name, status = self.ensure_driver_archive_for_entry(entry)
+        if archive_path and os.path.exists(archive_path):
+            return archive_path, archive_name
+
+        raise FileNotFoundError(status or "Driver archive is unavailable.")
+
+    def prepare_driver_archives(self, entries=None):
+        entries = list(entries or self.get_web_printer_entries())
+        if not entries:
+            return
+
+        with self.driver_package_lock:
+            seen_archives = set()
+            for entry in entries:
+                archive_name = entry.get("driver_archive_name") or self.get_driver_archive_filename(entry.get("driver_name", ""))
+                archive_key = archive_name.lower()
+                if archive_key in seen_archives:
+                    continue
+                seen_archives.add(archive_key)
+
+                archive_path = entry.get("driver_archive_path") or os.path.join(get_app_directory(), archive_name)
+                if os.path.exists(archive_path):
+                    self.log(self.tr("driver_package_exists", file=archive_name))
+                    continue
+
+                self.log(self.tr("driver_package_creating", driver=entry.get("driver_name", ""), file=archive_name))
+                built_path, _, status = self._ensure_driver_archive_for_entry_unlocked(entry)
+                if built_path and os.path.exists(built_path):
+                    self.log(self.tr("driver_package_ready", file=archive_name))
+                else:
+                    self.log(self.tr("driver_package_failed", driver=entry.get("driver_name", ""), error=status))
+
+    def start_driver_archive_packaging(self):
+        entries = self.get_web_printer_entries()
+        unique_entries = []
+        seen_archives = set()
+        for entry in entries:
+            archive_name = entry.get("driver_archive_name") or self.get_driver_archive_filename(entry.get("driver_name", ""))
+            archive_key = archive_name.lower()
+            if archive_key in seen_archives:
+                continue
+            seen_archives.add(archive_key)
+            unique_entries.append(entry)
+
+        if not unique_entries:
+            return
+
+        if self.driver_package_thread and self.driver_package_thread.is_alive():
+            return
+
+        self.log(self.tr("driver_prepare_background", count=len(unique_entries)))
+        self.driver_package_thread = threading.Thread(
+            target=self.prepare_driver_archives,
+            args=(unique_entries,),
+            daemon=True,
+            name=f"{APP_NAME}DriverPackager",
+        )
+        self.driver_package_thread.start()
+
     def build_installer_batch_content(self, printer_index):
         entries = self.get_web_printer_entries()
         entry = next((item for item in entries if item["index"] == printer_index), None)
@@ -3280,6 +3585,11 @@ class PrinterOneServer(PrinterOneServer):
         host_name = entry["host_name"]
         port_name = entry["port_name"]
         port_number = int(entry["port"])
+        driver_archive_name = entry["driver_archive_name"]
+        driver_info, _ = self.find_driver_package_info(driver_name)
+        driver_inf_name = ""
+        if driver_info:
+            driver_inf_name = str(driver_info.get("inf_name") or "").strip()
 
         success_title = self.tr("bat_success_title")
         success_message = self.tr("bat_success_message", printer=printer_name).replace("`r`n", "\r\n")
@@ -3289,26 +3599,95 @@ class PrinterOneServer(PrinterOneServer):
         powershell_script = "\n".join(
             [
                 "$ErrorActionPreference = 'Stop'",
+                "$ProgressPreference = 'SilentlyContinue'",
                 "Add-Type -AssemblyName System.Windows.Forms",
                 f"$printerName = '{self.escape_ps_single_quote(printer_name)}'",
                 f"$driverName = '{self.escape_ps_single_quote(driver_name)}'",
                 f"$portName = '{self.escape_ps_single_quote(port_name)}'",
                 f"$hostName = '{self.escape_ps_single_quote(host_name)}'",
                 f"$portNumber = {port_number}",
+                f"$driverArchiveName = '{self.escape_ps_single_quote(driver_archive_name)}'",
+                f"$driverInfName = '{self.escape_ps_single_quote(driver_inf_name)}'",
                 f"$successTitle = '{self.escape_ps_single_quote(success_title)}'",
                 f"$successMessage = '{self.escape_ps_single_quote(success_message)}'",
                 f"$missingTitle = '{self.escape_ps_single_quote(missing_title)}'",
                 f"$missingMessage = '{self.escape_ps_single_quote(missing_message)}'",
+                "$scriptDir = $env:SCRIPT_DIR",
+                "if ([string]::IsNullOrWhiteSpace($scriptDir)) {",
+                "    $scriptDir = (Get-Location).Path",
+                "}",
+                "$driverArchivePath = Join-Path -Path $scriptDir -ChildPath $driverArchiveName",
+                "$driverTempRoot = Join-Path -Path $env:TEMP -ChildPath ('PrtEasyServer_' + [System.IO.Path]::GetFileNameWithoutExtension($driverArchiveName))",
                 "if (-not (Get-PrinterPort -Name $portName -ErrorAction SilentlyContinue)) {",
                 "    Add-PrinterPort -Name $portName -PrinterHostAddress $hostName -PortNumber $portNumber",
                 "}",
-                "$driverExists = Get-PrinterDriver -Name $driverName -ErrorAction SilentlyContinue",
-                "if (-not $driverExists) {",
-                "    $driverExists = Get-PrinterDriver -ErrorAction SilentlyContinue |",
-                "        Where-Object { $_.Name -eq $driverName -or $_.Name -like ($driverName + '*') -or $driverName -like ($_.Name + '*') } |",
-                "        Select-Object -First 1",
-                "    if ($driverExists) {",
-                "        $driverName = $driverExists.Name",
+                "function Resolve-Driver($targetName) {",
+                "    if ([string]::IsNullOrWhiteSpace($targetName)) {",
+                "        return $null",
+                "    }",
+                "    $matched = Get-PrinterDriver -Name $targetName -ErrorAction SilentlyContinue",
+                "    if (-not $matched) {",
+                "        $matched = Get-PrinterDriver -ErrorAction SilentlyContinue |",
+                "            Where-Object { $_.Name -eq $targetName -or $_.Name -like ($targetName + '*') -or $targetName -like ($_.Name + '*') } |",
+                "            Select-Object -First 1",
+                "    }",
+                "    return $matched",
+                "}",
+                "function Install-DriverPackage($rootPath, $expectedInfName, $modelName) {",
+                "    $candidateInfs = New-Object System.Collections.Generic.List[string]",
+                "    if (-not [string]::IsNullOrWhiteSpace($expectedInfName)) {",
+                "        Get-ChildItem -LiteralPath $rootPath -Filter $expectedInfName -Recurse -File -ErrorAction SilentlyContinue |",
+                "            ForEach-Object { if (-not $candidateInfs.Contains($_.FullName)) { [void]$candidateInfs.Add($_.FullName) } }",
+                "    }",
+                "    Get-ChildItem -LiteralPath $rootPath -Filter '*.inf' -Recurse -File -ErrorAction SilentlyContinue |",
+                "        ForEach-Object { if (-not $candidateInfs.Contains($_.FullName)) { [void]$candidateInfs.Add($_.FullName) } }",
+                "    foreach ($infPath in $candidateInfs) {",
+                "        try {",
+                "            $printUiArgs = @(",
+                "                'printui.dll,PrintUIEntry',",
+                "                '/ia',",
+                "                ('/m \"{0}\"' -f $modelName),",
+                "                ('/f \"{0}\"' -f $infPath)",
+                "            )",
+                "            $installProcess = Start-Process -FilePath 'rundll32.exe' -ArgumentList $printUiArgs -PassThru -Wait -WindowStyle Hidden",
+                "            Start-Sleep -Seconds 1",
+                "            $resolved = Resolve-Driver $modelName",
+                "            if ($resolved) {",
+                "                return $resolved",
+                "            }",
+                "        } catch {",
+                "        }",
+                "        try {",
+                "            [void](Start-Process -FilePath 'pnputil.exe' -ArgumentList @('/add-driver', $infPath, '/install') -PassThru -Wait -WindowStyle Hidden)",
+                "            Start-Sleep -Seconds 1",
+                "            $resolved = Resolve-Driver $modelName",
+                "            if ($resolved) {",
+                "                return $resolved",
+                "            }",
+                "        } catch {",
+                "        }",
+                "    }",
+                "    return $null",
+                "}",
+                "$driverExists = Resolve-Driver $driverName",
+                "if ($driverExists) {",
+                "    $driverName = $driverExists.Name",
+                "}",
+                "if (-not $driverExists -and (Test-Path -LiteralPath $driverArchivePath)) {",
+                "    try {",
+                "        if (Test-Path -LiteralPath $driverTempRoot) {",
+                "            Remove-Item -LiteralPath $driverTempRoot -Recurse -Force",
+                "        }",
+                "        Expand-Archive -LiteralPath $driverArchivePath -DestinationPath $driverTempRoot -Force",
+                "        $driverExists = Install-DriverPackage $driverTempRoot $driverInfName $driverName",
+                "        if ($driverExists) {",
+                "            $driverName = $driverExists.Name",
+                "        }",
+                "    } catch {",
+                "    } finally {",
+                "        if (Test-Path -LiteralPath $driverTempRoot) {",
+                "            try { Remove-Item -LiteralPath $driverTempRoot -Recurse -Force } catch {}",
+                "        }",
                 "    }",
                 "}",
                 "$openPrintersFolder = {",
@@ -3353,19 +3732,32 @@ class PrinterOneServer(PrinterOneServer):
             ]
         )
         encoded_command = base64.b64encode(powershell_script.encode("utf-16le")).decode("ascii")
+        encoded_chunks = [encoded_command[i:i + 240] for i in range(0, len(encoded_command), 240)]
 
         lines = [
             "@echo off",
+            "rem PrtEasyServer installer batch - script_dir mode",
             "setlocal",
-            f'set "ENCODED_COMMAND={encoded_command}"',
             "",
-            "powershell -NoProfile -ExecutionPolicy Bypass -EncodedCommand %ENCODED_COMMAND%",
-            "if errorlevel 1 exit /b 1",
-            "",
-            "endlocal",
-            "exit /b 0",
-            "",
+            'set "SCRIPT_DIR=%~dp0"',
+            'set "B64FILE=%TEMP%\\PrtEasyServer_%RANDOM%_%RANDOM%.b64"',
+            '> "%B64FILE%" (',
         ]
+        lines.extend([f"echo {chunk}" for chunk in encoded_chunks])
+        lines.extend(
+            [
+                ")",
+                "",
+                "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$encoded = ((Get-Content -LiteralPath $env:B64FILE -Raw) -replace '\\s',''); $script = [Text.Encoding]::Unicode.GetString([Convert]::FromBase64String($encoded)); & ([scriptblock]::Create($script))\"",
+                'set "ERR=%ERRORLEVEL%"',
+                'del "%B64FILE%" >nul 2>nul',
+                'if not "%ERR%"=="0" exit /b %ERR%',
+                "",
+                "endlocal",
+                "exit /b 0",
+                "",
+            ]
+        )
 
         safe_name = self.sanitize_port_name_component(printer_name)[:24]
         filename = f"{APP_NAME}_Setup_{entry['index']}_{safe_name}_{port_number}.bat"
@@ -3382,16 +3774,19 @@ class PrinterOneServer(PrinterOneServer):
         cards = []
         for entry in entries:
             download_url = f"/download/{entry['index']}.bat"
+            driver_url = f"/driver/{entry['index']}.zip"
             cards.append(
                 f"""
                 <section class="printer-card">
                     <div class="printer-label">{self.tr('web_printer_badge', index=entry['index'])}</div>
                     <h2>{html.escape(entry['printer_name'])}</h2>
-                    <p><strong>{html.escape(self.tr('web_driver'))}</strong> {html.escape(entry['driver_name'])}</p>
                     <p><strong>{html.escape(self.tr('web_raw_port'))}</strong> {entry['port']}</p>
                     <p><strong>{html.escape(self.tr('web_host'))}</strong> {html.escape(entry['host_name'])}</p>
                     <p><strong>{html.escape(self.tr('web_target'))}</strong> {html.escape(entry['host_name'])}</p>
-                    <a class="download-button" href="{download_url}">{html.escape(self.tr('web_download'))}</a>
+                    <div class="button-row">
+                        <a class="download-button" href="{download_url}">{html.escape(self.tr('web_download'))}</a>
+                        <a class="download-button secondary" href="{driver_url}">{html.escape(self.tr('web_download_driver'))}</a>
+                    </div>
                 </section>
                 """
             )
@@ -3491,17 +3886,33 @@ class PrinterOneServer(PrinterOneServer):
         }}
         .printer-card h2, .empty-state h2 {{ margin: 0 0 10px; font-size: 22px; }}
         .printer-card p, .empty-state p {{ margin: 8px 0; color: var(--muted); line-height: 1.55; }}
+        .button-row {{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }}
         .download-button {{
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-top: 14px;
             padding: 12px 18px;
             border-radius: 14px;
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: #ffffff;
             font-weight: 700;
             text-decoration: none;
+            flex: 1 1 190px;
+        }}
+        .download-button.secondary {{
+            background: linear-gradient(135deg, #58a86f, #3f8f60);
+            color: #ffffff;
+        }}
+        .download-button:hover {{
+            filter: brightness(1.03);
+        }}
+        .download-button.secondary:hover {{
+            filter: brightness(1.08);
         }}
         .footer-note {{
             margin: 20px 4px 0;
@@ -3523,6 +3934,7 @@ class PrinterOneServer(PrinterOneServer):
             <h1>{html.escape(self.tr('web_heading'))}</h1>
             <p>{self.tr('web_intro_1', host=html.escape(host_name))}</p>
             <p>{html.escape(self.tr('web_intro_2'))}</p>
+            <p>{html.escape(self.tr('web_intro_3'))}</p>
             <div class="meta">
                 <div class="meta-chip">{html.escape(self.tr('web_meta_ip', value=local_ip))}</div>
                 <div class="meta-chip">{html.escape(self.tr('web_meta_entry', value=access_hint))}</div>
@@ -3553,6 +3965,9 @@ class PrinterOneServer(PrinterOneServer):
                     body = owner.render_web_page().encode("utf-8")
                     self.send_response(200)
                     self.send_header("Content-Type", "text/html; charset=utf-8")
+                    self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+                    self.send_header("Pragma", "no-cache")
+                    self.send_header("Expires", "0")
                     self.send_header("Content-Length", str(len(body)))
                     self.end_headers()
                     self.wfile.write(body)
@@ -3575,10 +3990,42 @@ class PrinterOneServer(PrinterOneServer):
                         "Content-Disposition",
                         f"attachment; filename=\"{ascii_name}\"; filename*=UTF-8''{quote(filename)}",
                     )
+                    self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+                    self.send_header("Pragma", "no-cache")
+                    self.send_header("Expires", "0")
                     self.send_header("Content-Length", str(len(body)))
                     self.end_headers()
                     self.wfile.write(body)
                     owner.log(owner.tr("web_download_logged", index=printer_index))
+                    return
+
+                if parsed.path.startswith("/driver/") and parsed.path.endswith(".zip"):
+                    name_part = parsed.path.rsplit("/", 1)[-1]
+                    index_token = name_part.split(".", 1)[0]
+                    try:
+                        printer_index = int(index_token)
+                        archive_path, filename = owner.ensure_driver_archive_for_index(printer_index)
+                    except (ValueError, KeyError, FileNotFoundError) as e:
+                        owner.log(owner.tr("web_driver_download_missing", index=index_token, error=e))
+                        self.send_error(404, "Driver package not found")
+                        return
+
+                    ascii_name = re.sub(r"[^A-Za-z0-9._-]+", "_", filename)
+                    file_size = os.path.getsize(archive_path)
+                    self.send_response(200)
+                    self.send_header("Content-Type", "application/zip")
+                    self.send_header(
+                        "Content-Disposition",
+                        f"attachment; filename=\"{ascii_name}\"; filename*=UTF-8''{quote(filename)}",
+                    )
+                    self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+                    self.send_header("Pragma", "no-cache")
+                    self.send_header("Expires", "0")
+                    self.send_header("Content-Length", str(file_size))
+                    self.end_headers()
+                    with open(archive_path, "rb") as file_handle:
+                        shutil.copyfileobj(file_handle, self.wfile)
+                    owner.log(owner.tr("web_driver_download_logged", index=printer_index, file=filename))
                     return
 
                 self.send_error(404, "Not found")
@@ -3675,6 +4122,7 @@ class PrinterOneServer(PrinterOneServer):
                 thread.start()
 
             self.log(self.tr("server_multi_started", count=len(self.active_printers)))
+            self.start_driver_archive_packaging()
 
             if self.start_web_server():
                 web_url = f"http://{local_ip}" if web_port == 80 else f"http://{local_ip}:{web_port}"

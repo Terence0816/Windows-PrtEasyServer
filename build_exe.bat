@@ -39,6 +39,7 @@ if errorlevel 1 (
 
 echo.
 echo Build completed.
+echo Version: v1.1.0.0
 echo Output: dist\PrtEasyServer.exe
 pause
 exit /b 0
