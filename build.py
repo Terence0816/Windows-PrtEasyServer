@@ -18,7 +18,7 @@ APP_NAME = "PrtEasyServer"
 APP_TITLE = "PrtEasyServer - Windows Network Print Server"
 APP_REPO_NAME = "Windows-PrtEasyServer"
 APP_GITHUB_URL = "https://github.com/Terence0816/Windows-PrtEasyServer"
-APP_VERSION = "1.1.0.0"
+APP_VERSION = "1.1.1.0"
 APP_VERSION_TAG = f"v{APP_VERSION}"
 APP_EXE = f"{APP_NAME}.exe"
 
