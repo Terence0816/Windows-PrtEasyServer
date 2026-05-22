@@ -26,6 +26,7 @@ import winreg
 import traceback
 import re
 import zipfile
+import webbrowser
 from datetime import datetime, timedelta
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse, quote
@@ -127,6 +128,7 @@ except ImportError:
 SERVER_RUNNING = True
 AUTO_START_MODE = False
 APP_NAME = "PrtEasyServer"
+APP_VERSION = "1.1.0.0"
 APP_TITLE = "PrtEasyServer - Windows 網路印表機伺服器"
 APP_REPO_NAME = "Windows-PrtEasyServer"
 APP_GITHUB_URL = "https://github.com/Terence0816/Windows-PrtEasyServer"
@@ -672,7 +674,12 @@ TRANSLATIONS = {
 TRANSLATIONS["zh-TW"].update(
     {
         "web_intro_3": "設定檔及驅動程式建議放在同個目錄以便快速安裝。",
+        "web_meta_ip": "伺服器主機：{value}",
         "web_download_driver": "下載驅動程式",
+        "web_footer": "注意：下載的 BAT 會使用主機名稱建立 TCP/IP 連接埠。如需連線此設定頁，可使用 {ip}。",
+        "web_footer_browser": "注意：下載檔案可能會被瀏覽器阻擋，可點「保留」繼續完成下載。",
+        "web_footer_version": "伺服器目前版本：V{version}",
+        "web_footer_latest": "查詢最新版本請前往：",
         "driver_prepare_background": "[DRIVER] 已在背景開始準備 {count} 個驅動程式壓縮檔。",
         "driver_package_exists": "[DRIVER] 已存在驅動程式壓縮檔：{file}",
         "driver_package_creating": "[DRIVER] 正在打包驅動程式：{driver} -> {file}",
@@ -686,7 +693,12 @@ TRANSLATIONS["zh-TW"].update(
 TRANSLATIONS["en"].update(
     {
         "web_intro_3": "Keep the setup file and the driver package in the same folder for faster installation.",
+        "web_meta_ip": "Server Host: {value}",
         "web_download_driver": "Download Driver",
+        "web_footer": "Note: the downloaded BAT file creates the TCP/IP port by hostname. To open this setup page again, you can use {ip}.",
+        "web_footer_browser": "Note: your browser may block the downloaded file. Click \"Keep\" to continue the download.",
+        "web_footer_version": "Current server version: V{version}",
+        "web_footer_latest": "For the latest version, visit:",
         "driver_prepare_background": "[DRIVER] Background packaging started for {count} driver archive(s).",
         "driver_package_exists": "[DRIVER] Driver archive already exists: {file}",
         "driver_package_creating": "[DRIVER] Packaging driver: {driver} -> {file}",
@@ -3920,6 +3932,15 @@ class PrinterOneServer(PrinterOneServer):
             font-size: 14px;
             line-height: 1.6;
         }}
+        .footer-note + .footer-note {{
+            margin-top: 6px;
+        }}
+        .footer-note a {{
+            color: var(--accent-dark);
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }}
         @media (max-width: 640px) {{
             .page {{ width: min(100vw - 20px, 1120px); padding: 16px 0 32px; }}
             .hero {{ padding: 22px 18px; }}
@@ -3936,7 +3957,7 @@ class PrinterOneServer(PrinterOneServer):
             <p>{html.escape(self.tr('web_intro_2'))}</p>
             <p>{html.escape(self.tr('web_intro_3'))}</p>
             <div class="meta">
-                <div class="meta-chip">{html.escape(self.tr('web_meta_ip', value=local_ip))}</div>
+                <div class="meta-chip">{html.escape(self.tr('web_meta_ip', value=host_name))}</div>
                 <div class="meta-chip">{html.escape(self.tr('web_meta_entry', value=access_hint))}</div>
                 <div class="meta-chip">{html.escape(self.tr('web_meta_count', count=len(entries)))}</div>
             </div>
@@ -3944,7 +3965,7 @@ class PrinterOneServer(PrinterOneServer):
         <section class="grid">
             {''.join(cards)}
         </section>
-        <p class="footer-note">{html.escape(self.tr('web_footer', ip=local_ip))}</p>
+        <p class="footer-note">{html.escape(self.tr('web_footer_browser'))} {html.escape(self.tr('web_footer_version', version=APP_VERSION))} {html.escape(self.tr('web_footer_latest'))}<a href="{html.escape(APP_GITHUB_URL, quote=True)}" target="_blank" rel="noopener noreferrer">{html.escape(APP_GITHUB_URL)}</a></p>
     </main>
 </body>
 </html>
@@ -4345,6 +4366,56 @@ class PrinterOneGUI(PrinterOneGUI):
     def tr(self, key, **kwargs):
         return translate_text(self.current_language, key, **kwargs)
 
+    def open_external_url(self, url):
+        try:
+            webbrowser.open_new_tab(url)
+        except Exception:
+            pass
+
+    def populate_about_text_widget(self, widget, text):
+        widget.config(state=tk.NORMAL)
+        widget.delete("1.0", tk.END)
+
+        url_pattern = re.compile(r"https?://[^\s]+")
+        cursor = 0
+        link_index = 0
+
+        for match in url_pattern.finditer(text):
+            start, end = match.span()
+            if start > cursor:
+                widget.insert(tk.END, text[cursor:start])
+
+            url = match.group(0)
+            tag_name = f"about_link_{link_index}"
+            widget.insert(tk.END, url, tag_name)
+            widget.tag_configure(tag_name, foreground="#0b63c9", underline=True)
+            widget.tag_bind(tag_name, "<Button-1>", lambda _event, link=url: self.open_external_url(link))
+            widget.tag_bind(tag_name, "<Enter>", lambda _event: widget.config(cursor="hand2"))
+            widget.tag_bind(tag_name, "<Leave>", lambda _event: widget.config(cursor="arrow"))
+            cursor = end
+            link_index += 1
+
+        if cursor < len(text):
+            widget.insert(tk.END, text[cursor:])
+
+        line_count = max(10, text.count("\n") + 1)
+        widget.config(height=line_count, state=tk.DISABLED)
+
+    def create_about_text_widget(self, parent):
+        background = self.root.tk.call("ttk::style", "lookup", "TFrame", "-background") or self.root.cget("bg") or "SystemButtonFace"
+        about_widget = tk.Text(
+            parent,
+            wrap=tk.WORD,
+            font=("Arial", 9),
+            borderwidth=0,
+            highlightthickness=0,
+            relief=tk.FLAT,
+            background=background,
+            cursor="arrow",
+        )
+        self.populate_about_text_widget(about_widget, self.tr("about_text"))
+        return about_widget
+
     def render_printer_rows(self):
         if not self.printer_rows_frame:
             return
@@ -4601,7 +4672,7 @@ class PrinterOneGUI(PrinterOneGUI):
 
         about_frame = ttk.LabelFrame(parent, text=self.tr("frame_about"), padding="10")
         about_frame.pack(fill=tk.X, padx=10, pady=(0, 10))
-        ttk.Label(about_frame, text=self.tr("about_text"), justify=tk.LEFT, font=("Arial", 9)).pack(anchor=tk.W)
+        self.create_about_text_widget(about_frame).pack(fill=tk.X, anchor=tk.W)
 
     def populate_language_combobox(self):
         options = []
