@@ -128,7 +128,7 @@ except ImportError:
 SERVER_RUNNING = True
 AUTO_START_MODE = False
 APP_NAME = "PrtEasyServer"
-APP_VERSION = "1.1.0.0"
+APP_VERSION = "1.1.1.0"
 APP_TITLE = "PrtEasyServer - Windows 網路印表機伺服器"
 APP_REPO_NAME = "Windows-PrtEasyServer"
 APP_GITHUB_URL = "https://github.com/Terence0816/Windows-PrtEasyServer"
@@ -187,7 +187,7 @@ TRANSLATIONS = {
         "language_label": "介面語系：",
         "button_apply_language": "套用語系",
         "frame_about": "關於",
-        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。",
+        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.1.1.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。",
         "startup_enabled": "[OK] 已啟用開機自動啟動",
         "startup_disabled": "[STOP] 未啟用開機自動啟動",
         "server_info_started": "已啟動 {count} 組",
@@ -288,7 +288,7 @@ TRANSLATIONS = {
         "language_label": "Interface Language:",
         "button_apply_language": "Apply Language",
         "frame_about": "About",
-        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns local Windows printers into network IP printers.\nIt supports RAW 9100 printing without Windows network sharing, SMB, or account/password prompts.",
+        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.1.1.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns local Windows printers into network IP printers.\nIt supports RAW 9100 printing without Windows network sharing, SMB, or account/password prompts.",
         "startup_enabled": "[OK] Startup is enabled",
         "startup_disabled": "[STOP] Startup is disabled",
         "server_info_started": "{count} printer servers active",
@@ -405,7 +405,7 @@ TRANSLATIONS = {
         "language_label": "介面語言:",
         "button_apply_language": "套用語言",
         "frame_about": "關於",
-        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。",
+        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.1.1.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。",
         "startup_enabled": "[OK] 已加入開機自動啟動",
         "startup_disabled": "[STOP] 未啟用開機自動啟動",
         "server_info_started": "已啟動 {count} 組",
@@ -556,7 +556,7 @@ TRANSLATIONS = {
         "language_label": "Interface language:",
         "button_apply_language": "Apply Language",
         "frame_about": "About",
-        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns a local Windows printer into an IP printer.\nIt supports RAW 9100 printing without Windows file sharing, SMB, or network credentials.",
+        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.1.1.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns a local Windows printer into an IP printer.\nIt supports RAW 9100 printing without Windows file sharing, SMB, or network credentials.",
         "startup_enabled": "[OK] Added to Windows startup",
         "startup_disabled": "[STOP] Windows startup disabled",
         "server_info_started": "Started {count} printer server(s)",
@@ -1645,7 +1645,7 @@ class PrinterOneServer:
                         self.send_error(404, "Printer not found")
                         return
 
-                    body = batch_content.encode("ascii")
+                    body = batch_content.encode("utf-8")
                     ascii_name = re.sub(r"[^A-Za-z0-9._-]+", "_", filename)
                     self.send_response(200)
                     self.send_header("Content-Type", "application/octet-stream")
@@ -2890,7 +2890,7 @@ class PrinterOneGUI:
         about_frame.pack(fill=tk.X, padx=10, pady=(0, 10))
         
         about_text = """PrtEasyServer - Windows 網路印表機伺服器
-版本 1.1.0.0
+版本 1.1.1.0
 Copyright (c) 2026 Terence0816
 GitHub: https://github.com/Terence0816/Windows-PrtEasyServer
 
@@ -3751,33 +3751,39 @@ class PrinterOneServer(PrinterOneServer):
                 "}",
             ]
         )
-        encoded_command = base64.b64encode(powershell_script.encode("utf-16le")).decode("ascii")
-        encoded_chunks = [encoded_command[i:i + 240] for i in range(0, len(encoded_command), 240)]
-
         lines = [
             "@echo off",
-            "rem PrtEasyServer installer batch - script_dir mode",
+            "rem PrtEasyServer readable installer - embedded UTF-8 PowerShell",
             "setlocal",
             "",
             'set "SCRIPT_DIR=%~dp0"',
-            'set "B64FILE=%TEMP%\\PrtEasyServer_%RANDOM%_%RANDOM%.b64"',
-            '> "%B64FILE%" (',
+            'set "SELF=%~f0"',
+            'set "PS1OUT=%TEMP%\\PrtEasyServer_Setup_%RANDOM%_%RANDOM%.ps1"',
+            "",
+            "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"$prefix = '#PS1# '; $lines = [System.IO.File]::ReadAllLines($env:SELF, [System.Text.Encoding]::UTF8); $ps = foreach ($line in $lines) { if ($line.StartsWith($prefix)) { $line.Substring($prefix.Length) } }; $utf8Bom = New-Object System.Text.UTF8Encoding -ArgumentList $true; [System.IO.File]::WriteAllLines($env:PS1OUT, [string[]]$ps, $utf8Bom)\"",
+            "if errorlevel 1 (",
+            "    echo Failed to extract embedded PowerShell script.",
+            "    pause",
+            "    exit /b 1",
+            ")",
+            "",
+            'powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%PS1OUT%"',
+            'set "ERR=%ERRORLEVEL%"',
+            "",
+            'del "%PS1OUT%" >nul 2>nul',
+            "",
+            'if not "%ERR%"=="0" (',
+            '    echo Installer failed. ErrorLevel=%ERR%',
+            '    pause',
+            '    exit /b %ERR%',
+            ")",
+            "",
+            "endlocal",
+            "exit /b 0",
+            "",
+            "# POWERSHELL_START - lines below are plain UTF-8 PowerShell, prefixed so cmd.exe will not parse them",
         ]
-        lines.extend([f"echo {chunk}" for chunk in encoded_chunks])
-        lines.extend(
-            [
-                ")",
-                "",
-                "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$encoded = ((Get-Content -LiteralPath $env:B64FILE -Raw) -replace '\\s',''); $script = [Text.Encoding]::Unicode.GetString([Convert]::FromBase64String($encoded)); & ([scriptblock]::Create($script))\"",
-                'set "ERR=%ERRORLEVEL%"',
-                'del "%B64FILE%" >nul 2>nul',
-                'if not "%ERR%"=="0" exit /b %ERR%',
-                "",
-                "endlocal",
-                "exit /b 0",
-                "",
-            ]
-        )
+        lines.extend([f"#PS1# {line}" if line else "#PS1#" for line in powershell_script.splitlines()])
 
         safe_name = self.sanitize_port_name_component(printer_name)[:24]
         filename = f"{APP_NAME}_Setup_{entry['index']}_{safe_name}_{port_number}.bat"
@@ -4048,7 +4054,7 @@ class PrinterOneServer(PrinterOneServer):
                         self.send_error(404, "Printer not found")
                         return
 
-                    body = batch_content.encode("ascii")
+                    body = batch_content.encode("utf-8")
                     ascii_name = re.sub(r"[^A-Za-z0-9._-]+", "_", filename)
                     self.send_response(200)
                     self.send_header("Content-Type", "application/octet-stream")
