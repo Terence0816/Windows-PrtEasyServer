@@ -187,7 +187,7 @@ TRANSLATIONS = {
         "language_label": "介面語系：",
         "button_apply_language": "套用語系",
         "frame_about": "關於",
-        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。\n\nThis project is based on PrinterOne by xtieume.\nOriginal project: https://github.com/xtieume/PrinterOne",
+        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。",
         "startup_enabled": "[OK] 已啟用開機自動啟動",
         "startup_disabled": "[STOP] 未啟用開機自動啟動",
         "server_info_started": "已啟動 {count} 組",
@@ -288,7 +288,7 @@ TRANSLATIONS = {
         "language_label": "Interface Language:",
         "button_apply_language": "Apply Language",
         "frame_about": "About",
-        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns local Windows printers into network IP printers.\nIt supports RAW 9100 printing without Windows network sharing, SMB, or account/password prompts.\n\nThis project is based on PrinterOne by xtieume.\nOriginal project: https://github.com/xtieume/PrinterOne",
+        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns local Windows printers into network IP printers.\nIt supports RAW 9100 printing without Windows network sharing, SMB, or account/password prompts.",
         "startup_enabled": "[OK] Startup is enabled",
         "startup_disabled": "[STOP] Startup is disabled",
         "server_info_started": "{count} printer servers active",
@@ -405,7 +405,7 @@ TRANSLATIONS = {
         "language_label": "介面語言:",
         "button_apply_language": "套用語言",
         "frame_about": "關於",
-        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。\n\nThis project is based on PrinterOne by xtieume.\nOriginal project: https://github.com/xtieume/PrinterOne",
+        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。",
         "startup_enabled": "[OK] 已加入開機自動啟動",
         "startup_disabled": "[STOP] 未啟用開機自動啟動",
         "server_info_started": "已啟動 {count} 組",
@@ -556,7 +556,7 @@ TRANSLATIONS = {
         "language_label": "Interface language:",
         "button_apply_language": "Apply Language",
         "frame_about": "About",
-        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns a local Windows printer into an IP printer.\nIt supports RAW 9100 printing without Windows file sharing, SMB, or network credentials.\n\nThis project is based on PrinterOne by xtieume.\nOriginal project: https://github.com/xtieume/PrinterOne",
+        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.1.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns a local Windows printer into an IP printer.\nIt supports RAW 9100 printing without Windows file sharing, SMB, or network credentials.",
         "startup_enabled": "[OK] Added to Windows startup",
         "startup_disabled": "[STOP] Windows startup disabled",
         "server_info_started": "Started {count} printer server(s)",
@@ -673,9 +673,13 @@ TRANSLATIONS = {
 
 TRANSLATIONS["zh-TW"].update(
     {
+        "web_intro_1": "這台伺服器目前使用 <span class=\"inline-focus\">{host}</span> 提供印表機安裝設定。",
         "web_intro_3": "設定檔及驅動程式建議放在同個目錄以便快速安裝。",
+        "web_intro_4": "如需手動 TCP/IP 設置請擇一選擇: <span class=\"inline-choice\">{host}</span> 或 <span class=\"inline-choice\">{ip}</span>",
+        "web_intro_5": "（建議使用 主機名稱 來設置，避免 IP 變動時無法連接）",
         "web_meta_ip": "伺服器主機：{value}",
         "web_download_driver": "下載驅動程式",
+        "web_target": "TCP/IP 設置:",
         "web_footer": "注意：下載的 BAT 會使用主機名稱建立 TCP/IP 連接埠。如需連線此設定頁，可使用 {ip}。",
         "web_footer_browser": "注意：下載檔案可能會被瀏覽器阻擋，可點「保留」繼續完成下載。",
         "web_footer_version": "伺服器目前版本：V{version}",
@@ -692,9 +696,13 @@ TRANSLATIONS["zh-TW"].update(
 
 TRANSLATIONS["en"].update(
     {
+        "web_intro_1": "This server is currently publishing printer setup files from <span class=\"inline-focus\">{host}</span>.",
         "web_intro_3": "Keep the setup file and the driver package in the same folder for faster installation.",
+        "web_intro_4": "For manual TCP/IP setup, choose either: <span class=\"inline-choice\">{host}</span> or <span class=\"inline-choice\">{ip}</span>",
+        "web_intro_5": "(Using hostname is recommended to avoid connection issues when the IP address changes.)",
         "web_meta_ip": "Server Host: {value}",
         "web_download_driver": "Download Driver",
+        "web_target": "TCP/IP Setup:",
         "web_footer": "Note: the downloaded BAT file creates the TCP/IP port by hostname. To open this setup page again, you can use {ip}.",
         "web_footer_browser": "Note: your browser may block the downloaded file. Click \"Keep\" to continue the download.",
         "web_footer_version": "Current server version: V{version}",
@@ -3792,9 +3800,7 @@ class PrinterOneServer(PrinterOneServer):
                 <section class="printer-card">
                     <div class="printer-label">{self.tr('web_printer_badge', index=entry['index'])}</div>
                     <h2>{html.escape(entry['printer_name'])}</h2>
-                    <p><strong>{html.escape(self.tr('web_raw_port'))}</strong> {entry['port']}</p>
-                    <p><strong>{html.escape(self.tr('web_host'))}</strong> {html.escape(entry['host_name'])}</p>
-                    <p><strong>{html.escape(self.tr('web_target'))}</strong> {html.escape(entry['host_name'])}</p>
+                    <p class="raw-port-line"><strong>{html.escape(self.tr('web_raw_port'))}</strong><span class="raw-port-value">{entry['port']}</span></p>
                     <div class="button-row">
                         <a class="download-button" href="{download_url}">{html.escape(self.tr('web_download'))}</a>
                         <a class="download-button secondary" href="{driver_url}">{html.escape(self.tr('web_download_driver'))}</a>
@@ -3865,6 +3871,29 @@ class PrinterOneServer(PrinterOneServer):
         }}
         h1 {{ margin: 14px 0 12px; font-size: clamp(30px, 5vw, 48px); }}
         .hero p {{ margin: 0 0 10px; color: var(--muted); line-height: 1.6; }}
+        .inline-focus {{
+            display: inline-block;
+            color: #0f5c3a;
+            font-weight: 800;
+            background: linear-gradient(135deg, rgba(101, 185, 132, 0.24), rgba(45, 133, 89, 0.16));
+            border: 1px solid rgba(45, 133, 89, 0.22);
+            border-radius: 999px;
+            box-shadow: 0 10px 24px rgba(45, 133, 89, 0.10);
+            padding: 2px 10px;
+            margin: 0 2px;
+        }}
+        .inline-choice {{
+            display: inline-block;
+            color: #0c4f33;
+            font-weight: 800;
+            letter-spacing: 0.01em;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(212, 236, 221, 0.92));
+            border: 1px solid rgba(45, 133, 89, 0.24);
+            border-radius: 999px;
+            box-shadow: 0 12px 28px rgba(45, 133, 89, 0.08);
+            padding: 3px 11px;
+            margin: 0 3px;
+        }}
         .meta {{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }}
         .meta-chip {{
             padding: 9px 14px;
@@ -3888,16 +3917,29 @@ class PrinterOneServer(PrinterOneServer):
         }}
         .printer-label {{
             display: inline-flex;
-            padding: 6px 12px;
+            padding: 7px 14px;
             border-radius: 999px;
             background: rgba(45, 133, 89, 0.12);
             color: var(--accent-dark);
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 700;
             margin-bottom: 12px;
         }}
         .printer-card h2, .empty-state h2 {{ margin: 0 0 10px; font-size: 22px; }}
         .printer-card p, .empty-state p {{ margin: 8px 0; color: var(--muted); line-height: 1.55; }}
+        .raw-port-line strong {{
+            color: var(--accent-dark);
+        }}
+        .raw-port-value {{
+            display: inline-block;
+            color: #0b3f29;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            background: rgba(45, 133, 89, 0.10);
+            border-radius: 10px;
+            padding: 1px 8px;
+            margin-left: 4px;
+        }}
         .button-row {{
             display: flex;
             flex-wrap: wrap;
@@ -3956,6 +3998,8 @@ class PrinterOneServer(PrinterOneServer):
             <p>{self.tr('web_intro_1', host=html.escape(host_name))}</p>
             <p>{html.escape(self.tr('web_intro_2'))}</p>
             <p>{html.escape(self.tr('web_intro_3'))}</p>
+            <p>{self.tr('web_intro_4', host=html.escape(host_name), ip=html.escape(local_ip))}</p>
+            <p>{self.tr('web_intro_5')}</p>
             <div class="meta">
                 <div class="meta-chip">{html.escape(self.tr('web_meta_ip', value=host_name))}</div>
                 <div class="meta-chip">{html.escape(self.tr('web_meta_entry', value=access_hint))}</div>
@@ -3965,7 +4009,8 @@ class PrinterOneServer(PrinterOneServer):
         <section class="grid">
             {''.join(cards)}
         </section>
-        <p class="footer-note">{html.escape(self.tr('web_footer_browser'))} {html.escape(self.tr('web_footer_version', version=APP_VERSION))} {html.escape(self.tr('web_footer_latest'))}<a href="{html.escape(APP_GITHUB_URL, quote=True)}" target="_blank" rel="noopener noreferrer">{html.escape(APP_GITHUB_URL)}</a></p>
+        <p class="footer-note">{html.escape(self.tr('web_footer_browser'))}</p>
+        <p class="footer-note">{html.escape(self.tr('web_footer_version', version=APP_VERSION))} {html.escape(self.tr('web_footer_latest'))}<a href="{html.escape(APP_GITHUB_URL, quote=True)}" target="_blank" rel="noopener noreferrer">{html.escape(APP_GITHUB_URL)}</a></p>
     </main>
 </body>
 </html>
@@ -4386,14 +4431,17 @@ class PrinterOneGUI(PrinterOneGUI):
                 widget.insert(tk.END, text[cursor:start])
 
             url = match.group(0)
-            tag_name = f"about_link_{link_index}"
-            widget.insert(tk.END, url, tag_name)
-            widget.tag_configure(tag_name, foreground="#0b63c9", underline=True)
-            widget.tag_bind(tag_name, "<Button-1>", lambda _event, link=url: self.open_external_url(link))
-            widget.tag_bind(tag_name, "<Enter>", lambda _event: widget.config(cursor="hand2"))
-            widget.tag_bind(tag_name, "<Leave>", lambda _event: widget.config(cursor="arrow"))
+            if url == APP_GITHUB_URL:
+                tag_name = f"about_link_{link_index}"
+                widget.insert(tk.END, url, tag_name)
+                widget.tag_configure(tag_name, foreground="#0b63c9", underline=True)
+                widget.tag_bind(tag_name, "<Button-1>", lambda _event, link=url: self.open_external_url(link))
+                widget.tag_bind(tag_name, "<Enter>", lambda _event: widget.config(cursor="hand2"))
+                widget.tag_bind(tag_name, "<Leave>", lambda _event: widget.config(cursor="arrow"))
+                link_index += 1
+            else:
+                widget.insert(tk.END, url)
             cursor = end
-            link_index += 1
 
         if cursor < len(text):
             widget.insert(tk.END, text[cursor:])
