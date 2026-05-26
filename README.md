@@ -1,6 +1,6 @@
 # PrtEasyServer
 
-Windows Network Print Server for local printers.
+Windows RAW 9100 Network Print Server and TCP/IP Printer Server for local USB printers.
 
 [![Release](https://img.shields.io/github/v/release/Terence0816/Windows-PrtEasyServer?label=Release&color=2d7d46)](https://github.com/Terence0816/Windows-PrtEasyServer/releases)
 [![Downloads](https://img.shields.io/github/downloads/Terence0816/Windows-PrtEasyServer/total?label=Downloads&color=1f6feb)](https://github.com/Terence0816/Windows-PrtEasyServer/releases)
@@ -9,7 +9,7 @@ Windows Network Print Server for local printers.
 
 English | [繁體中文](#zh-tw)
 
-PrtEasyServer turns a Windows local printer into a TCP/IP network printer server. It focuses on simple RAW 9100 sharing, avoids SMB printer sharing, and lets client PCs install printers through IP port setup without Windows file sharing credentials.
+PrtEasyServer is a Windows RAW 9100 network print server for local USB printers and Windows-installed printers. It turns a Windows PC into a lightweight TCP/IP printer server, so client PCs can install shared printers through a standard IP port without SMB printer sharing, Windows network neighborhood prompts, or account/password dialogs.
 
 ## Version History
 
@@ -34,28 +34,29 @@ PrtEasyServer turns a Windows local printer into a TCP/IP network printer server
 ## Highlights
 
 - Share one or more local printers at the same time
-- RAW 9100 print server for standard TCP/IP printer port setup
+- Windows RAW 9100 print server for standard TCP/IP printer port setup
+- TCP/IP printer server flow for local USB printers and Windows-installed printers
 - No SMB printer sharing, no network neighborhood password prompt
-- Built-in web page for printer list and installer download
+- Built-in web page for printer list, installer BAT download, and driver package download
 - Installer BAT is generated dynamically for each shared printer
-- Chinese and English UI, web page, and installer messages
+- Bilingual desktop UI, web page, and installer messages
 - Hostname-first printer connection flow for changing LAN IP environments
 - Auto firewall rule check when app starts or services start
 - Minimize to tray and startup support
 
+## Typical Use Cases
+
+- Turn a Windows PC into a local network print server
+- Share a USB printer as a RAW 9100 network printer
+- Install printers on client PCs through a TCP/IP port instead of SMB sharing
+- Avoid Windows shared-printer credential prompts in office or home LAN environments
+- Keep printer connections stable by preferring hostname-based setup when LAN IP changes
+
 ## Screenshots
-
-### Traditional Chinese Desktop UI
-
-![Traditional Chinese Desktop UI](./assets/screenshots/ui-zh-tw.png)
 
 ### English Desktop UI
 
 ![English Desktop UI](./assets/screenshots/ui-en.png)
-
-### Traditional Chinese Web Page
-
-![Traditional Chinese Web Page](./assets/screenshots/web-zh-tw.png)
 
 ### English Web Page
 
@@ -75,17 +76,9 @@ Click the preview below to watch the YouTube demo:
 - Official `v1.1.1.0` download: [PrtEasyServer.exe](https://github.com/Terence0816/Windows-PrtEasyServer/releases/download/v1.1.1.0/PrtEasyServer.exe)
 - The release page also shows the current download count for the official build
 
-## Typical Usage
-
-1. Connect your printer to the Windows PC.
-2. Select one or more printers in PrtEasyServer and assign ports such as `9100`, `9200`, or `9300`.
-3. Start the server.
-4. Open the built-in web page from another PC and download the installer BAT for the target printer.
-5. Run the BAT on the client PC to create the TCP/IP port and install the printer with the matching driver.
-
 ## Search Keywords
 
-Windows print server, network printer server, RAW 9100, TCP/IP printer sharing, USB printer sharing, printer host, no SMB printer sharing, IP printer setup, Windows local printer to network printer
+Windows RAW 9100 print server, Windows network print server, TCP/IP printer server, local printer sharing, USB printer over network, IP printer setup, no SMB printer sharing, RAW 9100 printer host, network printer installer BAT, GitHub print server project
 
 ## Credits
 
@@ -107,7 +100,7 @@ This repository is released under the MIT License. See [LICENSE](./LICENSE).
 
 # 繁體中文
 
-PrtEasyServer 是一個 Windows 網路印表機伺服器，可以把本機印表機轉成 TCP/IP 網路印表機。它主打簡單的 RAW 9100 分享方式，不需要使用 Windows 網芳或 SMB 印表機分享，也不需要讓用戶碰到帳號密碼提示。
+PrtEasyServer 是一個 Windows RAW 9100 網路印表機伺服器，可把本機 USB 印表機或已安裝在 Windows 上的印表機轉成 TCP/IP 網路印表機。它讓使用者能透過標準 IP 連接埠安裝印表機，不需要使用 Windows 網芳或 SMB 印表機分享，也不需要碰到帳號密碼提示。
 
 ## 版本更新紀錄
 
@@ -132,14 +125,22 @@ PrtEasyServer 是一個 Windows 網路印表機伺服器，可以把本機印表
 ## 功能特色
 
 - 可同時分享多台本機印表機
-- 採用 RAW 9100 列印服務，適合標準 TCP/IP 連接埠安裝
+- 採用 Windows RAW 9100 列印服務，適合標準 TCP/IP 連接埠安裝
+- 可將 USB 印表機或本機已安裝印表機快速轉成 TCP/IP 網路印表機
 - 不使用 SMB 印表機分享，不會跳出網芳帳密問題
-- 內建網頁頁面，可列出所有分享中的印表機
-- 每台印表機都可下載專屬安裝 BAT
+- 內建網頁頁面，可直接下載安裝 BAT 與驅動程式
 - 介面、網頁、安裝訊息支援中文與英文
 - 以主機名稱為優先建立連線，較適合內部 IP 會變動的環境
 - 程式啟動或伺服器啟動時可自動檢查防火牆規則
 - 支援最小化到系統匣與開機自動啟動
+
+## 適用情境
+
+- 需要把 Windows 電腦變成網路印表機伺服器
+- 想把 USB 印表機快速分享成 RAW 9100 IP 印表機
+- 希望用 TCP/IP 連接埠安裝印表機，而不是使用 SMB 分享
+- 不想讓使用者碰到共享印表機的帳號密碼驗證
+- 區網 IP 可能變動，但仍希望主機名稱連線維持穩定
 
 ## 畫面預覽
 
@@ -147,17 +148,9 @@ PrtEasyServer 是一個 Windows 網路印表機伺服器，可以把本機印表
 
 ![中文桌面介面](./assets/screenshots/ui-zh-tw.png)
 
-### 英文桌面介面
-
-![英文桌面介面](./assets/screenshots/ui-en.png)
-
 ### 中文網頁介面
 
 ![中文網頁介面](./assets/screenshots/web-zh-tw.png)
-
-### 英文網頁介面
-
-![英文網頁介面](./assets/screenshots/web-en.png)
 
 ## 影片示範
 
@@ -173,24 +166,9 @@ PrtEasyServer 是一個 Windows 網路印表機伺服器，可以把本機印表
 - 正式版 `v1.1.1.0`：[PrtEasyServer.exe](https://github.com/Terence0816/Windows-PrtEasyServer/releases/download/v1.1.1.0/PrtEasyServer.exe)
 - GitHub 發行頁右側與上方徽章都可以看到目前的下載次數
 
-## 使用方式
-
-1. 將印表機接到 Windows 電腦。
-2. 在 PrtEasyServer 中選擇一台或多台印表機，並指定 `9100`、`9200`、`9300` 等連接埠。
-3. 啟動伺服器。
-4. 在其他電腦開啟內建網頁，下載對應印表機的安裝 BAT。
-5. 在用戶端執行 BAT，自動建立 TCP/IP 連接埠，並用對應驅動安裝印表機。
-
-## 適用情境
-
-- 公司或家庭中有 USB 印表機，需要快速分享成 IP 印表機
-- 不希望使用 Windows 網芳分享
-- 不想讓使用者碰到帳號密碼驗證
-- 分享主機的區網 IP 可能變動，但電腦名稱固定
-
 ## 搜尋關鍵字
 
-Windows 印表機伺服器、網路印表機伺服器、RAW 9100、TCP/IP 列印、USB 印表機分享、IP 印表機、無 SMB 分享、無網芳帳密、印表機安裝 BAT
+Windows 印表機伺服器、網路印表機伺服器、RAW 9100、TCP/IP 印表機伺服器、USB 印表機分享、IP 印表機安裝、無 SMB 分享、無網芳帳密、印表機安裝 BAT、Windows 網路列印
 
 ## 原作與致謝
 
