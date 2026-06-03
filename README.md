@@ -1,10 +1,9 @@
 # PrtEasyServer
 
-Windows RAW 9100 Network Print Server and TCP/IP Printer Server for local USB printers.
+Windows RAW 9100 Network Print Server and TCP/IP Printer Server for local USB printers and Windows-installed printers.
 
 [![Release](https://img.shields.io/github/v/release/Terence0816/Windows-PrtEasyServer?label=Release&color=2d7d46)](https://github.com/Terence0816/Windows-PrtEasyServer/releases)
 [![Downloads](https://img.shields.io/github/downloads/Terence0816/Windows-PrtEasyServer/total?label=Downloads&color=1f6feb)](https://github.com/Terence0816/Windows-PrtEasyServer/releases)
-[![v1.1.1.0 Downloads](https://img.shields.io/github/downloads/Terence0816/Windows-PrtEasyServer/v1.1.1.0/total?label=v1.1.1.0%20Downloads&color=cf222e)](https://github.com/Terence0816/Windows-PrtEasyServer/releases/tag/v1.1.1.0)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
 English | [繁體中文](#zh-tw)
@@ -12,6 +11,14 @@ English | [繁體中文](#zh-tw)
 PrtEasyServer is a Windows RAW 9100 network print server for local USB printers and Windows-installed printers. It turns a Windows PC into a lightweight TCP/IP printer server, so client PCs can install shared printers through a standard IP port without SMB printer sharing, Windows network neighborhood prompts, or account/password dialogs.
 
 ## Version History
+
+### v1.2.0.0
+
+- Added `build_exe_win10_11.bat` and `build_exe_win7_10_11.bat` for clearer build targets.
+- Added Windows 7 server-side support for hosting printers and packaging printer drivers.
+- Added Windows 7 client-side support for installer BAT execution and automatic driver package installation.
+- Included `Python38.zip` so Win7-compatible builds can be prepared with Python 3.8 more easily.
+- Reduced the packaged file size significantly when using `build_exe_win7_10_11.bat`.
 
 ### v1.1.1.0
 
@@ -42,7 +49,15 @@ PrtEasyServer is a Windows RAW 9100 network print server for local USB printers 
 - Bilingual desktop UI, web page, and installer messages
 - Hostname-first printer connection flow for changing LAN IP environments
 - Auto firewall rule check when app starts or services start
+- Windows 7 / 10 / 11 compatible build flow with dedicated batch files
 - Minimize to tray and startup support
+
+## Build Scripts
+
+- `build_exe_win10_11.bat`: standard build flow for Windows 10 and Windows 11
+- `build_exe_win7_10_11.bat`: Windows 7 compatible build flow using Python 3.8 and reduced packaged size
+- `Python38.zip`: bundled helper package for preparing Win7-compatible builds
+- `requirements-win7.txt`: Win7-specific build dependencies
 
 ## Typical Use Cases
 
@@ -51,6 +66,7 @@ PrtEasyServer is a Windows RAW 9100 network print server for local USB printers 
 - Install printers on client PCs through a TCP/IP port instead of SMB sharing
 - Avoid Windows shared-printer credential prompts in office or home LAN environments
 - Keep printer connections stable by preferring hostname-based setup when LAN IP changes
+- Keep older Windows 7 machines working as print servers or print clients
 
 ## Screenshots
 
@@ -73,12 +89,12 @@ Click the preview below to watch the YouTube demo:
 ## Download
 
 - Latest releases: [Releases](https://github.com/Terence0816/Windows-PrtEasyServer/releases)
-- Official `v1.1.1.0` download: [PrtEasyServer.exe](https://github.com/Terence0816/Windows-PrtEasyServer/releases/download/v1.1.1.0/PrtEasyServer.exe)
+- Official `v1.2.0.0` download: [PrtEasyServer.exe](https://github.com/Terence0816/Windows-PrtEasyServer/releases/download/v1.2.0.0/PrtEasyServer.exe)
 - The release page also shows the current download count for the official build
 
 ## Search Keywords
 
-Windows RAW 9100 print server, Windows network print server, TCP/IP printer server, local printer sharing, USB printer over network, IP printer setup, no SMB printer sharing, RAW 9100 printer host, network printer installer BAT, GitHub print server project
+Windows RAW 9100 print server, Windows network print server, TCP/IP printer server, Windows 7 print server, local printer sharing, USB printer over network, IP printer setup, no SMB printer sharing, RAW 9100 printer host, network printer installer BAT, GitHub print server project
 
 ## Credits
 
@@ -88,7 +104,7 @@ Original project: https://github.com/xtieume/PrinterOne
 Original attribution:
 
 - Original Copyright (c) 2025 xtieume@gmail.com
-- This repository contains modifications, UI changes, multilingual support, web installer download flow, multi-printer support, and packaging updates by Terence0816
+- This repository contains modifications, UI changes, multilingual support, web installer download flow, multi-printer support, Windows 7 compatibility work, and packaging updates by Terence0816
 
 ## License
 
@@ -103,6 +119,14 @@ This repository is released under the MIT License. See [LICENSE](./LICENSE).
 PrtEasyServer 是一個 Windows RAW 9100 網路印表機伺服器，可把本機 USB 印表機或已安裝在 Windows 上的印表機轉成 TCP/IP 網路印表機。它讓使用者能透過標準 IP 連接埠安裝印表機，不需要使用 Windows 網芳或 SMB 印表機分享，也不需要碰到帳號密碼提示。
 
 ## 版本更新紀錄
+
+### v1.2.0.0
+
+- 新增 `build_exe_win10_11.bat` 與 `build_exe_win7_10_11.bat`，讓打包目標更清楚。
+- 新增 Windows 7 伺服器端支援，可在 Win7 上架設分享並打包印表機驅動程式。
+- 新增 Windows 7 連接端支援，設定檔與驅動包可在 Win7 用戶端自動安裝。
+- 內附 `Python38.zip`，方便準備可相容 Win7 的 Python 3.8 打包環境。
+- 使用 `build_exe_win7_10_11.bat` 時，可明顯減少打包後的檔案大小。
 
 ### v1.1.1.0
 
@@ -132,7 +156,15 @@ PrtEasyServer 是一個 Windows RAW 9100 網路印表機伺服器，可把本機
 - 介面、網頁、安裝訊息支援中文與英文
 - 以主機名稱為優先建立連線，較適合內部 IP 會變動的環境
 - 程式啟動或伺服器啟動時可自動檢查防火牆規則
+- 提供可相容 Windows 7 / 10 / 11 的專用打包流程
 - 支援最小化到系統匣與開機自動啟動
+
+## 打包方式
+
+- `build_exe_win10_11.bat`：適合 Windows 10 / 11 的一般打包流程
+- `build_exe_win7_10_11.bat`：適合需要 Win7 相容性的打包流程，使用 Python 3.8 並縮小封裝大小
+- `Python38.zip`：內附給 Win7 相容打包流程使用的 Python 3.8 環境包
+- `requirements-win7.txt`：Win7 專用打包相依套件
 
 ## 適用情境
 
@@ -141,6 +173,7 @@ PrtEasyServer 是一個 Windows RAW 9100 網路印表機伺服器，可把本機
 - 希望用 TCP/IP 連接埠安裝印表機，而不是使用 SMB 分享
 - 不想讓使用者碰到共享印表機的帳號密碼驗證
 - 區網 IP 可能變動，但仍希望主機名稱連線維持穩定
+- 需要讓較舊的 Windows 7 主機或用戶端也能繼續使用
 
 ## 畫面預覽
 
@@ -163,12 +196,12 @@ PrtEasyServer 是一個 Windows RAW 9100 網路印表機伺服器，可把本機
 ## 下載
 
 - 版本下載頁面：[Releases](https://github.com/Terence0816/Windows-PrtEasyServer/releases)
-- 正式版 `v1.1.1.0`：[PrtEasyServer.exe](https://github.com/Terence0816/Windows-PrtEasyServer/releases/download/v1.1.1.0/PrtEasyServer.exe)
+- 正式版 `v1.2.0.0`：[PrtEasyServer.exe](https://github.com/Terence0816/Windows-PrtEasyServer/releases/download/v1.2.0.0/PrtEasyServer.exe)
 - GitHub 發行頁右側與上方徽章都可以看到目前的下載次數
 
 ## 搜尋關鍵字
 
-Windows 印表機伺服器、網路印表機伺服器、RAW 9100、TCP/IP 印表機伺服器、USB 印表機分享、IP 印表機安裝、無 SMB 分享、無網芳帳密、印表機安裝 BAT、Windows 網路列印
+Windows 印表機伺服器、網路印表機伺服器、RAW 9100、TCP/IP 印表機伺服器、Windows 7 印表機伺服器、USB 印表機分享、IP 印表機安裝、無 SMB 分享、無網芳帳密、印表機安裝 BAT、Windows 網路列印
 
 ## 原作與致謝
 
@@ -178,7 +211,7 @@ Windows 印表機伺服器、網路印表機伺服器、RAW 9100、TCP/IP 印表
 原作資訊：
 
 - Original Copyright (c) 2025 xtieume@gmail.com
-- 本專案由 Terence0816 進行後續修改，包含介面調整、多語系、內建網頁、安裝 BAT、多印表機支援與封裝調整
+- 本專案由 Terence0816 進行後續修改，包含介面調整、多語系、內建網頁、安裝 BAT、多印表機支援、Windows 7 相容性與封裝調整
 
 ## 授權
 

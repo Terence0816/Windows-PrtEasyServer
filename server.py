@@ -128,7 +128,7 @@ except ImportError:
 SERVER_RUNNING = True
 AUTO_START_MODE = False
 APP_NAME = "PrtEasyServer"
-APP_VERSION = "1.1.1.0"
+APP_VERSION = "1.2.0.0"
 APP_TITLE = "PrtEasyServer - Windows 網路印表機伺服器"
 APP_REPO_NAME = "Windows-PrtEasyServer"
 APP_GITHUB_URL = "https://github.com/Terence0816/Windows-PrtEasyServer"
@@ -187,7 +187,7 @@ TRANSLATIONS = {
         "language_label": "介面語系：",
         "button_apply_language": "套用語系",
         "frame_about": "關於",
-        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.1.1.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。",
+        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.2.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。",
         "startup_enabled": "[OK] 已啟用開機自動啟動",
         "startup_disabled": "[STOP] 未啟用開機自動啟動",
         "server_info_started": "已啟動 {count} 組",
@@ -288,7 +288,7 @@ TRANSLATIONS = {
         "language_label": "Interface Language:",
         "button_apply_language": "Apply Language",
         "frame_about": "About",
-        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.1.1.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns local Windows printers into network IP printers.\nIt supports RAW 9100 printing without Windows network sharing, SMB, or account/password prompts.",
+        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.2.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns local Windows printers into network IP printers.\nIt supports RAW 9100 printing without Windows network sharing, SMB, or account/password prompts.",
         "startup_enabled": "[OK] Startup is enabled",
         "startup_disabled": "[STOP] Startup is disabled",
         "server_info_started": "{count} printer servers active",
@@ -405,7 +405,7 @@ TRANSLATIONS = {
         "language_label": "介面語言:",
         "button_apply_language": "套用語言",
         "frame_about": "關於",
-        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.1.1.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。",
+        "about_text": "PrtEasyServer - Windows 網路印表機伺服器\n版本 1.2.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\n基於 PrinterOne 修改：\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\n這是一個簡易的 TCP/IP 列印伺服器，可將本機印表機轉成網路 IP 印表機。\n支援 RAW 9100 列印，不需 Windows 網芳、SMB 分享或帳號密碼。",
         "startup_enabled": "[OK] 已加入開機自動啟動",
         "startup_disabled": "[STOP] 未啟用開機自動啟動",
         "server_info_started": "已啟動 {count} 組",
@@ -556,7 +556,7 @@ TRANSLATIONS = {
         "language_label": "Interface language:",
         "button_apply_language": "Apply Language",
         "frame_about": "About",
-        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.1.1.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns a local Windows printer into an IP printer.\nIt supports RAW 9100 printing without Windows file sharing, SMB, or network credentials.",
+        "about_text": "PrtEasyServer - Windows Network Print Server\nVersion 1.2.0.0\nCopyright (c) 2026 Terence0816\nGitHub: https://github.com/Terence0816/Windows-PrtEasyServer\n\nBased on PrinterOne:\nhttps://github.com/xtieume/PrinterOne\nOriginal Copyright (c) 2025 xtieume@gmail.com\n\nThis is a lightweight TCP/IP print server that turns a local Windows printer into an IP printer.\nIt supports RAW 9100 printing without Windows file sharing, SMB, or network credentials.",
         "startup_enabled": "[OK] Added to Windows startup",
         "startup_disabled": "[STOP] Windows startup disabled",
         "server_info_started": "Started {count} printer server(s)",
@@ -771,6 +771,7 @@ class PrinterOneServer:
                 startup_logger.info("Initializing PrinterOneServer...")
             
             self.config = self.load_config()
+            self._capability_cache = {}
             
             if startup_logger:
                 startup_logger.info(f"Configuration loaded: {self.config}")
@@ -906,7 +907,7 @@ class PrinterOneServer:
         """Run a PowerShell script and return the completed process."""
         return subprocess.run(
             [
-                "powershell",
+                "powershell.exe",
                 "-NoProfile",
                 "-ExecutionPolicy",
                 "Bypass",
@@ -919,48 +920,172 @@ class PrinterOneServer:
             **get_hidden_subprocess_kwargs(),
         )
 
+    def command_available(self, command_name):
+        """Return whether an executable is available on PATH."""
+        try:
+            return shutil.which(command_name) is not None
+        except Exception:
+            return False
+
+    def powershell_command_available(self, command_name):
+        """Return whether a PowerShell cmdlet/function is available."""
+        cache_key = f"ps:{str(command_name).strip().lower()}"
+        if cache_key not in self._capability_cache:
+            if not self.command_available("powershell.exe"):
+                self._capability_cache[cache_key] = False
+            else:
+                escaped_name = self.escape_ps_single_quote(command_name)
+                result = self.run_powershell(
+                    f"if (Get-Command -Name '{escaped_name}' -ErrorAction SilentlyContinue) {{ 'YES' }}"
+                )
+                output = (result.stdout or "").strip()
+                self._capability_cache[cache_key] = result.returncode == 0 and output == "YES"
+        return self._capability_cache[cache_key]
+
+    def supports_netsecurity_firewall(self):
+        """Return whether the newer NetSecurity firewall cmdlets are available."""
+        cache_key = "feature:netsecurity_firewall"
+        if cache_key not in self._capability_cache:
+            self._capability_cache[cache_key] = (
+                self.powershell_command_available("Get-NetFirewallRule")
+                and self.powershell_command_available("New-NetFirewallRule")
+                and self.powershell_command_available("Get-NetFirewallProfile")
+            )
+        return self._capability_cache[cache_key]
+
+    def supports_pnputil_export_driver(self):
+        """Return whether this Windows build supports pnputil /export-driver."""
+        cache_key = "feature:pnputil_export_driver"
+        if cache_key not in self._capability_cache:
+            if not self.command_available("pnputil.exe"):
+                self._capability_cache[cache_key] = False
+            else:
+                result = subprocess.run(
+                    ["pnputil.exe", "/?"],
+                    capture_output=True,
+                    text=True,
+                    errors="ignore",
+                    **get_hidden_subprocess_kwargs(),
+                )
+                output = "\n".join([result.stdout or "", result.stderr or ""]).lower()
+                self._capability_cache[cache_key] = "/export-driver" in output
+        return self._capability_cache[cache_key]
+
     def get_firewall_status(self):
         """Check whether Windows Firewall is enabled on any profile."""
-        script = (
-            "$enabledProfiles = Get-NetFirewallProfile | Where-Object { $_.Enabled -eq $true }; "
-            "if ($enabledProfiles.Count -gt 0) { "
-            "  'ON:' + (($enabledProfiles | Select-Object -ExpandProperty Name) -join ','); "
-            "} else { "
-            "  'OFF'; "
-            "}"
-        )
+        if self.supports_netsecurity_firewall():
+            script = (
+                "$enabledProfiles = Get-NetFirewallProfile | Where-Object { $_.Enabled -eq $true }; "
+                "if ($enabledProfiles.Count -gt 0) { "
+                "  'ON:' + (($enabledProfiles | Select-Object -ExpandProperty Name) -join ','); "
+                "} else { "
+                "  'OFF'; "
+                "}"
+            )
+
+            try:
+                result = self.run_powershell(script)
+                output = (result.stdout or "").strip()
+                if result.returncode == 0:
+                    if output.startswith("ON:"):
+                        return True, output[3:] or "Domain,Private,Public"
+                    if output == "OFF":
+                        return False, ""
+                details = (result.stderr or output or f"returncode={result.returncode}").strip()
+                return None, details
+            except Exception as e:
+                return None, str(e)
+
+        if not self.command_available("netsh.exe"):
+            return None, "netsh.exe was not found."
 
         try:
-            result = self.run_powershell(script)
-            output = (result.stdout or "").strip()
-            if result.returncode == 0:
-                if output.startswith("ON:"):
-                    return True, output[3:] or "Domain,Private,Public"
-                if output == "OFF":
-                    return False, ""
-            details = (result.stderr or output or f"returncode={result.returncode}").strip()
-            return None, details
+            result = subprocess.run(
+                ["netsh.exe", "advfirewall", "show", "allprofiles", "state"],
+                capture_output=True,
+                text=True,
+                errors="ignore",
+                **get_hidden_subprocess_kwargs(),
+            )
+            output = "\n".join([result.stdout or "", result.stderr or ""]).strip()
+            if result.returncode != 0:
+                return None, output or f"returncode={result.returncode}"
+
+            lowered = output.lower()
+            has_on = "state on" in lowered
+            has_off = "state off" in lowered
+            if has_on:
+                return True, "netsh"
+            if has_off and not has_on:
+                return False, "netsh"
+            return None, output
         except Exception as e:
             return None, str(e)
 
     def ensure_firewall_rule(self, display_name, port, description):
         """Ensure one inbound TCP firewall rule exists."""
-        script = "\n".join(
-            [
-                f"$displayName = '{self.escape_ps_single_quote(display_name)}'",
-                f"$description = '{self.escape_ps_single_quote(description)}'",
-                f"$port = {int(port)}",
-                "$existing = Get-NetFirewallRule -DisplayName $displayName -ErrorAction SilentlyContinue",
-                "if ($existing) {",
-                "    $existing | Set-NetFirewallRule -Enabled True -Action Allow -Profile Any | Out-Null",
-                "    'UPDATED'",
-                "} else {",
-                "    New-NetFirewallRule -DisplayName $displayName -Direction Inbound -Action Allow -Protocol TCP -LocalPort $port -Profile Any -Description $description | Out-Null",
-                "    'CREATED'",
-                "}",
-            ]
+        if self.supports_netsecurity_firewall():
+            script = "\n".join(
+                [
+                    f"$displayName = '{self.escape_ps_single_quote(display_name)}'",
+                    f"$description = '{self.escape_ps_single_quote(description)}'",
+                    f"$port = {int(port)}",
+                    "$existing = Get-NetFirewallRule -DisplayName $displayName -ErrorAction SilentlyContinue",
+                    "if ($existing) {",
+                    "    $existing | Set-NetFirewallRule -Enabled True -Action Allow -Profile Any | Out-Null",
+                    "    'UPDATED'",
+                    "} else {",
+                    "    New-NetFirewallRule -DisplayName $displayName -Direction Inbound -Action Allow -Protocol TCP -LocalPort $port -Profile Any -Description $description | Out-Null",
+                    "    'CREATED'",
+                    "}",
+                ]
+            )
+            return self.run_powershell(script)
+
+        add_cmd = [
+            "netsh.exe",
+            "advfirewall",
+            "firewall",
+            "add",
+            "rule",
+            f"name={display_name}",
+            "dir=in",
+            "action=allow",
+            "protocol=TCP",
+            f"localport={int(port)}",
+        ]
+        delete_cmd = [
+            "netsh.exe",
+            "advfirewall",
+            "firewall",
+            "delete",
+            "rule",
+            f"name={display_name}",
+            "protocol=TCP",
+            f"localport={int(port)}",
+        ]
+
+        subprocess.run(
+            delete_cmd,
+            capture_output=True,
+            text=True,
+            errors="ignore",
+            **get_hidden_subprocess_kwargs(),
         )
-        return self.run_powershell(script)
+        add_result = subprocess.run(
+            add_cmd,
+            capture_output=True,
+            text=True,
+            errors="ignore",
+            **get_hidden_subprocess_kwargs(),
+        )
+        status_text = "CREATED" if add_result.returncode == 0 else ""
+        return subprocess.CompletedProcess(
+            add_cmd,
+            add_result.returncode,
+            stdout=status_text,
+            stderr=add_result.stderr,
+        )
 
     def ensure_firewall_rules(self, printer_configs=None, trigger=""):
         """Detect firewall status and create inbound rules for configured ports."""
@@ -2890,7 +3015,7 @@ class PrinterOneGUI:
         about_frame.pack(fill=tk.X, padx=10, pady=(0, 10))
         
         about_text = """PrtEasyServer - Windows 網路印表機伺服器
-版本 1.1.1.0
+版本 1.2.0.0
 Copyright (c) 2026 Terence0816
 GitHub: https://github.com/Terence0816/Windows-PrtEasyServer
 
@@ -3386,64 +3511,490 @@ class PrinterOneServer(PrinterOneServer):
             entry["driver_archive_ready"] = os.path.exists(archive_path)
         return entries
 
-    def find_driver_package_info(self, driver_name):
-        """Resolve the installed printer driver and its INF path."""
-        escaped_name = self.escape_ps_single_quote(driver_name)
-        script = "\n".join(
-            [
-                "$ErrorActionPreference = 'Stop'",
-                f"$driverName = '{escaped_name}'",
-                "$driver = Get-PrinterDriver -Name $driverName -ErrorAction SilentlyContinue",
-                "if (-not $driver) {",
-                "    $driver = Get-PrinterDriver -ErrorAction SilentlyContinue |",
-                "        Where-Object { $_.Name -eq $driverName -or $_.Name -like ($driverName + '*') -or $driverName -like ($_.Name + '*') } |",
-                "        Select-Object -First 1",
-                "}",
-                "if ($driver) {",
-                "    $resolvedName = $driver.Name",
-                "    $infPath = $null",
-                "    try { $infPath = $driver.InfPath } catch {}",
-                "    if (-not $infPath) {",
-                "        $cimDriver = Get-CimInstance Win32_PrinterDriver -ErrorAction SilentlyContinue |",
-                "            Where-Object { $_.Name -eq $resolvedName } |",
-                "            Select-Object -First 1",
-                "        if ($cimDriver -and $cimDriver.InfName) {",
-                "            $infPath = $cimDriver.InfName",
-                "        }",
-                "    }",
-                "    [pscustomobject]@{ Name = $resolvedName; InfPath = [string]$infPath } | ConvertTo-Json -Compress",
-                "}",
-            ]
+    def driver_name_matches(self, installed_name, target_name):
+        """Return whether an installed driver name looks like the requested model."""
+        installed = str(installed_name or "").strip()
+        target = str(target_name or "").strip()
+        if not installed or not target:
+            return False
+
+        installed_lower = installed.lower()
+        target_lower = target.lower()
+        return (
+            installed_lower == target_lower
+            or installed_lower.startswith(target_lower)
+            or target_lower.startswith(installed_lower)
         )
 
-        result = self.run_powershell(script)
-        output = (result.stdout or "").strip()
-        if result.returncode != 0:
-            error_text = (result.stderr or output or f"returncode={result.returncode}").strip()
-            return None, error_text
-        if not output:
-            return None, "Driver information was not found."
+    def get_driver_registry_inf_path(self, driver_name, driver_record=None):
+        """Return the driver's InfPath from the print driver registry when available."""
+        resolved_name = str(
+            (driver_record or {}).get("Name")
+            or driver_name
+            or ""
+        ).strip()
+        if not resolved_name:
+            return ""
+
+        environment_candidates = []
+        if driver_record:
+            env_name = str(driver_record.get("Environment") or "").strip()
+            if env_name:
+                environment_candidates.append(env_name)
+
+        for fallback_env in ("Windows x64", "Windows NT x86", "Windows IA64"):
+            if fallback_env not in environment_candidates:
+                environment_candidates.append(fallback_env)
+
+        version_keys = ("Version-4", "Version-3", "Version-2")
+        base_path = r"SYSTEM\CurrentControlSet\Control\Print\Environments"
+        for environment_name in environment_candidates:
+            for version_key in version_keys:
+                driver_key_path = (
+                    f"{base_path}\\{environment_name}\\Drivers\\{version_key}\\{resolved_name}"
+                )
+                try:
+                    with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, driver_key_path) as driver_key:
+                        value, _ = winreg.QueryValueEx(driver_key, "InfPath")
+                except OSError:
+                    continue
+
+                inf_path = str(value or "").strip()
+                if inf_path and os.path.isfile(inf_path):
+                    return inf_path
+        return ""
+
+    def find_driver_record(self, driver_name):
+        """Resolve a local driver record through the Win32 print driver API."""
+        for level in (3, 2):
+            try:
+                drivers = win32print.EnumPrinterDrivers(None, None, level)
+            except Exception:
+                continue
+
+            for item in drivers:
+                if self.driver_name_matches(item.get("Name", ""), driver_name):
+                    return item
+        return None
+
+    def iter_driver_candidate_roots(self, driver_record):
+        """Yield likely package roots that may contain the driver INF and files."""
+        seen = set()
+        arch_folder_names = {"amd64", "x64", "x86", "i386", "ia64"}
+
+        for key in ("DriverPath", "DataFile", "ConfigFile"):
+            raw_path = str(driver_record.get(key) or "").strip()
+            if not raw_path:
+                continue
+
+            current = os.path.dirname(raw_path)
+            if current and os.path.isdir(current):
+                normalized = os.path.normcase(os.path.normpath(current))
+                if normalized not in seen:
+                    seen.add(normalized)
+                    yield current
+
+                parent = os.path.dirname(current)
+                if (
+                    parent
+                    and parent != current
+                    and os.path.isdir(parent)
+                    and os.path.basename(current).strip().lower() in arch_folder_names
+                ):
+                    normalized_parent = os.path.normcase(os.path.normpath(parent))
+                    if normalized_parent not in seen:
+                        seen.add(normalized_parent)
+                        yield parent
+
+    def find_inf_files_in_tree(self, root_path, max_depth=2):
+        """Return INF files below a candidate driver package root."""
+        inf_files = []
+        root_depth = os.path.normpath(root_path).count(os.sep)
+
+        for current_root, dirnames, filenames in os.walk(root_path):
+            current_depth = os.path.normpath(current_root).count(os.sep) - root_depth
+            if current_depth >= max_depth:
+                dirnames[:] = []
+
+            for filename in filenames:
+                if filename.lower().endswith(".inf"):
+                    inf_files.append(os.path.join(current_root, filename))
+
+        return sorted(inf_files)
+
+    def select_preferred_inf_path(self, candidate_root, inf_files):
+        """Choose the most likely INF file within a candidate package root."""
+        if not inf_files:
+            return ""
+
+        preferred_inf = inf_files[0]
+        basename_hint = os.path.basename(candidate_root).split("_")[0].lower()
+        for inf_path in inf_files:
+            inf_name = os.path.basename(inf_path)
+            inf_name_lower = inf_name.lower()
+            if basename_hint and inf_name_lower == basename_hint:
+                return inf_path
+            if basename_hint and inf_name_lower.startswith(basename_hint):
+                return inf_path
+        return preferred_inf
+
+    def get_driver_search_names(self, driver_name, driver_record=None):
+        """Return unique display names that can identify a driver package."""
+        search_names = []
+        for raw_name in (
+            driver_name,
+            driver_record.get("Name", "") if driver_record else "",
+        ):
+            normalized = str(raw_name or "").strip()
+            if normalized and normalized.lower() not in [item.lower() for item in search_names]:
+                search_names.append(normalized)
+        return search_names
+
+    def get_driver_file_hints(self, driver_record):
+        """Return installed driver file basenames to help match INF packages."""
+        hints = []
+        if not driver_record:
+            return hints
+
+        def add_hint(raw_path):
+            raw_path = str(raw_path or "").strip()
+            if not raw_path:
+                return
+            basename = os.path.basename(raw_path).strip().lower()
+            if basename and basename not in hints:
+                hints.append(basename)
+
+        for key in ("DriverPath", "DataFile", "ConfigFile", "HelpFile"):
+            add_hint(driver_record.get(key))
+
+        dependent_files = driver_record.get("DependentFiles") or []
+        if isinstance(dependent_files, str):
+            dependent_files = [item for item in dependent_files.split("\0") if item]
+        for file_path in dependent_files:
+            add_hint(file_path)
+        return hints
+
+    def get_windows_inf_paths(self):
+        """Return cached OEM INF paths from the Windows INF directory."""
+        cache_key = "index:windows_inf_paths"
+        if cache_key not in self._capability_cache:
+            inf_paths = []
+            windows_dir = (
+                os.environ.get("WINDIR")
+                or os.environ.get("SystemRoot")
+                or r"C:\Windows"
+            )
+            inf_root = os.path.join(windows_dir, "INF")
+            if os.path.isdir(inf_root):
+                for filename in os.listdir(inf_root):
+                    lowered = filename.lower()
+                    if lowered.endswith(".inf") and (lowered.startswith("oem") or lowered == "ntprint.inf"):
+                        inf_paths.append(os.path.join(inf_root, filename))
+            self._capability_cache[cache_key] = sorted(inf_paths)
+        return list(self._capability_cache.get(cache_key) or [])
+
+    def is_shared_spool_driver_root(self, root_path):
+        """Return whether a path points at the shared spool driver cache."""
+        normalized = os.path.normcase(os.path.normpath(str(root_path or "").strip()))
+        if not normalized:
+            return False
+
+        windows_dir = (
+            os.environ.get("WINDIR")
+            or os.environ.get("SystemRoot")
+            or r"C:\Windows"
+        )
+        spool_root = os.path.normcase(
+            os.path.normpath(os.path.join(windows_dir, "System32", "spool", "drivers"))
+        )
+        if not (normalized == spool_root or normalized.startswith(spool_root + os.sep)):
+            return False
+
+        relative = normalized[len(spool_root):].strip("\\/")
+        if not relative:
+            return True
+
+        parts = [part for part in relative.split(os.sep) if part]
+        shared_parts = {"x64", "w32x86", "amd64", "ia64", "3", "2", "1", "color", "pcc"}
+        return all(part in shared_parts for part in parts)
+
+    def build_driver_manifest_files(self, driver_record, inf_path=""):
+        """Collect only the files that belong to one installed printer driver."""
+        manifest_files = []
+        seen = set()
+
+        def add_file(file_path):
+            normalized_path = os.path.normcase(os.path.normpath(str(file_path or "").strip()))
+            if not normalized_path or normalized_path in seen:
+                return
+            if os.path.isfile(normalized_path):
+                seen.add(normalized_path)
+                manifest_files.append(normalized_path)
+
+        if inf_path:
+            add_file(inf_path)
+
+        if not driver_record:
+            return manifest_files
+
+        for key in ("DriverPath", "DataFile", "ConfigFile", "HelpFile"):
+            add_file(driver_record.get(key))
+
+        dependent_files = driver_record.get("DependentFiles") or []
+        if isinstance(dependent_files, str):
+            dependent_files = [item for item in dependent_files.split("\0") if item]
+        for file_path in dependent_files:
+            add_file(file_path)
+
+        return manifest_files
+
+    def build_driver_manifest_export_root(self, driver_record, inf_path, export_dir):
+        """Copy one driver's manifest files into a temporary export folder."""
+        manifest_files = self.build_driver_manifest_files(driver_record, inf_path)
+        copied_files = []
+        for source_path in manifest_files:
+            destination_path = os.path.join(export_dir, os.path.basename(source_path))
+            shutil.copy2(source_path, destination_path)
+            copied_files.append((destination_path, os.path.basename(destination_path)))
+        return copied_files
+
+    def open_driver_archive_writer(self, archive_path):
+        """Open a ZIP writer tuned for quicker packaging on older Windows PCs."""
+        kwargs = {
+            "mode": "w",
+            "compression": zipfile.ZIP_DEFLATED,
+        }
+        try:
+            return zipfile.ZipFile(archive_path, compresslevel=1, **kwargs)
+        except TypeError:
+            return zipfile.ZipFile(archive_path, **kwargs)
+
+    def get_driver_store_inf_paths(self):
+        """Return cached INF paths from the Windows DriverStore FileRepository."""
+        cache_key = "index:driver_store_inf_paths"
+        if cache_key not in self._capability_cache:
+            inf_paths = []
+            windows_dir = (
+                os.environ.get("WINDIR")
+                or os.environ.get("SystemRoot")
+                or r"C:\Windows"
+            )
+            driver_store_root = os.path.join(
+                windows_dir,
+                "System32",
+                "DriverStore",
+                "FileRepository",
+            )
+
+            if os.path.isdir(driver_store_root):
+                for current_root, _, filenames in os.walk(driver_store_root):
+                    for filename in filenames:
+                        if filename.lower().endswith(".inf"):
+                            inf_paths.append(os.path.join(current_root, filename))
+
+            self._capability_cache[cache_key] = sorted(inf_paths)
+        return list(self._capability_cache.get(cache_key) or [])
+
+    def read_text_file_with_fallbacks(self, file_path, encodings=None):
+        """Read a text file using a few Windows-friendly encoding fallbacks."""
+        encodings = encodings or ("utf-8", "utf-16", "mbcs", "latin-1")
+        for encoding_name in encodings:
+            try:
+                with open(file_path, "r", encoding=encoding_name, errors="strict") as handle:
+                    return handle.read()
+            except (UnicodeDecodeError, LookupError, OSError):
+                continue
 
         try:
-            payload = json.loads(output.splitlines()[-1])
-        except json.JSONDecodeError:
-            return None, output
+            with open(file_path, "r", encoding="utf-8", errors="ignore") as handle:
+                return handle.read()
+        except OSError:
+            return None
 
-        resolved_name = str(payload.get("Name") or driver_name).strip() or driver_name
-        inf_path = str(payload.get("InfPath") or "").strip()
-        inf_name = os.path.basename(inf_path)
-        source_folder = ""
-        if inf_path and os.path.isabs(inf_path) and os.path.exists(inf_path):
-            source_folder = os.path.dirname(inf_path)
-        if not inf_name:
-            return None, "The installed printer driver does not expose an INF path."
+    def score_driver_store_inf_candidate(self, inf_text, driver_names, file_hints):
+        """Score how likely one INF file belongs to the requested printer driver."""
+        lowered = inf_text.lower()
+        exact_name_hits = 0
+        token_score = 0
+        file_hits = 0
 
+        for driver_name in driver_names:
+            normalized_name = str(driver_name or "").strip().lower()
+            if not normalized_name:
+                continue
+
+            if normalized_name in lowered:
+                exact_name_hits += 1
+                continue
+
+            tokens = [token for token in re.findall(r"[a-z0-9]+", normalized_name) if len(token) >= 3]
+            if not tokens:
+                continue
+
+            matched_tokens = sum(1 for token in tokens if token in lowered)
+            if matched_tokens == len(tokens):
+                token_score = max(token_score, matched_tokens * 10)
+            elif matched_tokens >= max(2, len(tokens) // 2):
+                token_score = max(token_score, matched_tokens * 4)
+
+        for hint in file_hints:
+            if hint and hint in lowered:
+                file_hits += 1
+
+        score = (exact_name_hits * 100) + token_score + (file_hits * 35)
+        if exact_name_hits == 0 and file_hits == 0 and token_score < 12:
+            return 0
+        return score
+
+    def find_driver_store_package_info(self, driver_name, driver_record=None):
+        """Search DriverStore globally for a package that matches the installed driver."""
+        driver_names = self.get_driver_search_names(driver_name, driver_record)
+        if not driver_names:
+            return None
+
+        file_hints = self.get_driver_file_hints(driver_record)
+        candidates = []
+        for inf_path in self.get_driver_store_inf_paths():
+            inf_text = self.read_text_file_with_fallbacks(inf_path)
+            if inf_text is None:
+                continue
+
+            score = self.score_driver_store_inf_candidate(inf_text, driver_names, file_hints)
+            if score <= 0:
+                continue
+
+            candidates.append(
+                {
+                    "score": score,
+                    "inf_path": inf_path,
+                    "source_folder": os.path.dirname(inf_path),
+                }
+            )
+
+        if not candidates:
+            return None
+
+        candidates.sort(
+            key=lambda item: (
+                -item["score"],
+                len(item["source_folder"]),
+                item["inf_path"].lower(),
+            )
+        )
+        best = candidates[0]
+        resolved_name = driver_names[0]
         return {
             "driver_name": resolved_name,
-            "inf_name": inf_name,
-            "inf_path": inf_path,
-            "source_folder": source_folder,
-        }, ""
+            "inf_name": os.path.basename(best["inf_path"]),
+            "inf_path": best["inf_path"],
+            "source_folder": best["source_folder"],
+        }
+
+    def find_windows_inf_package_info(self, driver_name, driver_record=None):
+        """Search the Windows INF directory for a matching installed printer package."""
+        driver_names = self.get_driver_search_names(driver_name, driver_record)
+        if not driver_names:
+            return None
+
+        file_hints = self.get_driver_file_hints(driver_record)
+        candidates = []
+        for inf_path in self.get_windows_inf_paths():
+            inf_text = self.read_text_file_with_fallbacks(inf_path)
+            if inf_text is None:
+                continue
+
+            score = self.score_driver_store_inf_candidate(inf_text, driver_names, file_hints)
+            if score <= 0:
+                continue
+
+            candidates.append(
+                {
+                    "score": score,
+                    "inf_path": inf_path,
+                }
+            )
+
+        if not candidates:
+            return None
+
+        candidates.sort(
+            key=lambda item: (
+                -item["score"],
+                item["inf_path"].lower(),
+            )
+        )
+        best = candidates[0]
+        resolved_name = driver_names[0]
+        return {
+            "driver_name": resolved_name,
+            "inf_name": os.path.basename(best["inf_path"]),
+            "inf_path": best["inf_path"],
+            "source_folder": os.path.dirname(best["inf_path"]),
+            "pack_strategy": "manifest",
+        }
+
+    def find_driver_package_info(self, driver_name):
+        """Resolve the installed printer driver and its INF path."""
+        driver_record = self.find_driver_record(driver_name)
+        supports_export_driver = self.supports_pnputil_export_driver()
+        prefers_manifest_packaging = not supports_export_driver
+        if driver_record:
+            resolved_name = str(driver_record.get("Name") or driver_name).strip() or driver_name
+            registry_inf_path = self.get_driver_registry_inf_path(resolved_name, driver_record)
+            if registry_inf_path:
+                registry_source_folder = os.path.dirname(registry_inf_path)
+                info = {
+                    "driver_name": resolved_name,
+                    "inf_name": os.path.basename(registry_inf_path),
+                    "inf_path": registry_inf_path,
+                    "source_folder": registry_source_folder,
+                }
+                windows_inf_dir = os.path.normcase(
+                    os.path.normpath(
+                        os.path.join(
+                            os.environ.get("WINDIR")
+                            or os.environ.get("SystemRoot")
+                            or r"C:\Windows",
+                            "INF",
+                        )
+                    )
+                )
+                if os.path.normcase(os.path.normpath(registry_source_folder)) == windows_inf_dir:
+                    info["pack_strategy"] = "manifest"
+                return info, ""
+
+            for candidate_root in self.iter_driver_candidate_roots(driver_record):
+                inf_files = self.find_inf_files_in_tree(candidate_root)
+                if not inf_files:
+                    continue
+
+                if self.is_shared_spool_driver_root(candidate_root):
+                    continue
+
+                preferred_inf = self.select_preferred_inf_path(candidate_root, inf_files)
+
+                return {
+                    "driver_name": resolved_name,
+                    "inf_name": os.path.basename(preferred_inf),
+                    "inf_path": preferred_inf,
+                    "source_folder": candidate_root,
+                }, ""
+
+        if prefers_manifest_packaging:
+            windows_inf_info = self.find_windows_inf_package_info(driver_name, driver_record)
+            if windows_inf_info:
+                return windows_inf_info, ""
+
+        driver_store_info = self.find_driver_store_package_info(driver_name, driver_record)
+        if driver_store_info:
+            return driver_store_info, ""
+
+        if not prefers_manifest_packaging:
+            windows_inf_info = self.find_windows_inf_package_info(driver_name, driver_record)
+            if windows_inf_info:
+                return windows_inf_info, ""
+
+        return None, "The installed printer driver package could not be located."
 
     def _ensure_driver_archive_for_entry_unlocked(self, entry):
         driver_name = str(entry.get("driver_name", "")).strip()
@@ -3461,12 +4012,34 @@ class PrinterOneServer(PrinterOneServer):
         try:
             source_folder = driver_info.get("source_folder", "")
             exported_root = ""
-            if source_folder and os.path.isdir(source_folder):
+            pack_strategy = str(driver_info.get("pack_strategy") or "").strip().lower()
+            if pack_strategy == "manifest":
+                with tempfile.TemporaryDirectory(prefix=f"{APP_NAME}_driver_") as temp_root:
+                    export_dir = os.path.join(temp_root, "export")
+                    os.makedirs(export_dir, exist_ok=True)
+                    exported_files = self.build_driver_manifest_export_root(
+                        self.find_driver_record(driver_name),
+                        driver_info.get("inf_path", ""),
+                        export_dir,
+                    )
+                    if not exported_files:
+                        return None, archive_name, "No driver files were collected for the selected package."
+
+                    with self.open_driver_archive_writer(temp_zip_path) as archive:
+                        for full_path, relative_path in exported_files:
+                            archive.write(full_path, relative_path)
+
+                    os.replace(temp_zip_path, archive_path)
+                    return archive_path, archive_name, "created"
+            elif source_folder and os.path.isdir(source_folder):
                 exported_root = source_folder
             else:
                 with tempfile.TemporaryDirectory(prefix=f"{APP_NAME}_driver_") as temp_root:
                     export_dir = os.path.join(temp_root, "export")
                     os.makedirs(export_dir, exist_ok=True)
+
+                    if not self.supports_pnputil_export_driver():
+                        return None, archive_name, "Driver export requires pnputil /export-driver, which is unavailable on this Windows version."
 
                     export_result = subprocess.run(
                         ["pnputil.exe", "/export-driver", driver_info["inf_name"], export_dir],
@@ -3494,7 +4067,7 @@ class PrinterOneServer(PrinterOneServer):
                     if not exported_files:
                         return None, archive_name, "No driver files were exported."
 
-                    with zipfile.ZipFile(temp_zip_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+                    with self.open_driver_archive_writer(temp_zip_path) as archive:
                         for full_path, relative_path in exported_files:
                             archive.write(full_path, relative_path)
 
@@ -3511,7 +4084,7 @@ class PrinterOneServer(PrinterOneServer):
             if not exported_files:
                 return None, archive_name, "No driver files were exported."
 
-            with zipfile.ZipFile(temp_zip_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+            with self.open_driver_archive_writer(temp_zip_path) as archive:
                 for full_path, relative_path in exported_files:
                     archive.write(full_path, relative_path)
 
@@ -3615,6 +4188,34 @@ class PrinterOneServer(PrinterOneServer):
         success_message = self.tr("bat_success_message", printer=printer_name).replace("`r`n", "\r\n")
         missing_title = self.tr("bat_missing_title")
         missing_message = self.tr("bat_missing_message", driver=driver_name, port=port_name).replace("`r`n", "\r\n")
+        if self.get_language() == "zh-TW":
+            queue_failed_title = "需要手動完成安裝"
+            queue_failed_message = (
+                f"驅動已就緒，但無法自動建立 {printer_name}。"
+                f"\r\n\r\n已建立連接埠：{port_name}\r\n"
+                "已開啟手動新增印表機視窗，請選擇這個連接埠。"
+            )
+        else:
+            queue_failed_title = "Finish Setup Manually"
+            queue_failed_message = (
+                f"The driver is ready, but {printer_name} could not be created automatically."
+                f"\r\n\r\nCreated port: {port_name}\r\n"
+                "The Add Printer window has been opened. Please choose this port."
+            )
+        if self.get_language() == "zh-TW":
+            queue_failed_title = "需要手動完成安裝"
+            queue_failed_message = (
+                f"驅動已就緒，但無法自動建立 {printer_name}。"
+                f"\r\n\r\n已建立連接埠：{port_name}\r\n"
+                "已開啟手動新增印表機視窗，請選擇這個連接埠。"
+            )
+        else:
+            queue_failed_title = "Finish Setup Manually"
+            queue_failed_message = (
+                f"The driver is ready, but {printer_name} could not be created automatically."
+                f"\r\n\r\nCreated port: {port_name}\r\n"
+                "The Add Printer window has been opened. Please choose this port."
+            )
 
         powershell_script = "\n".join(
             [
@@ -3622,6 +4223,7 @@ class PrinterOneServer(PrinterOneServer):
                 "$ProgressPreference = 'SilentlyContinue'",
                 "Add-Type -AssemblyName System.Windows.Forms",
                 f"$printerName = '{self.escape_ps_single_quote(printer_name)}'",
+                f"$requestedDriverName = '{self.escape_ps_single_quote(driver_name)}'",
                 f"$driverName = '{self.escape_ps_single_quote(driver_name)}'",
                 f"$portName = '{self.escape_ps_single_quote(port_name)}'",
                 f"$hostName = '{self.escape_ps_single_quote(host_name)}'",
@@ -3632,6 +4234,8 @@ class PrinterOneServer(PrinterOneServer):
                 f"$successMessage = '{self.escape_ps_single_quote(success_message)}'",
                 f"$missingTitle = '{self.escape_ps_single_quote(missing_title)}'",
                 f"$missingMessage = '{self.escape_ps_single_quote(missing_message)}'",
+                f"$queueFailedTitle = '{self.escape_ps_single_quote(queue_failed_title)}'",
+                f"$queueFailedMessage = '{self.escape_ps_single_quote(queue_failed_message)}'",
                 "$scriptDir = $env:SCRIPT_DIR",
                 "if ([string]::IsNullOrWhiteSpace($scriptDir)) {",
                 "    $scriptDir = (Get-Location).Path",
@@ -4235,6 +4839,428 @@ class PrinterOneServer(PrinterOneServer):
 
         if was_running:
             self.log(self.tr("server_stopped"))
+
+
+class PrinterOneServer(PrinterOneServer):
+    """Final compatibility overrides for legacy Windows installer flows."""
+
+    def build_installer_batch_content(self, printer_index):
+        entries = self.get_web_printer_entries()
+        entry = next((item for item in entries if item["index"] == printer_index), None)
+        if not entry:
+            raise KeyError("printer_not_found")
+
+        printer_name = entry["printer_name"]
+        driver_name = entry["driver_name"]
+        host_name = entry["host_name"]
+        host_ip = entry["host_ip"]
+        port_name = entry["port_name"]
+        port_number = int(entry["port"])
+        driver_archive_name = entry["driver_archive_name"]
+        driver_info, _ = self.find_driver_package_info(driver_name)
+        driver_inf_name = ""
+        if driver_info:
+            driver_inf_name = str(driver_info.get("inf_name") or "").strip()
+
+        success_title = self.tr("bat_success_title")
+        success_message = self.tr("bat_success_message", printer=printer_name).replace("`r`n", "\r\n")
+        missing_title = self.tr("bat_missing_title")
+        missing_message = self.tr("bat_missing_message", driver=driver_name, port=port_name).replace("`r`n", "\r\n")
+        if self.get_language() == "zh-TW":
+            queue_failed_title = "需要手動完成安裝"
+            queue_failed_message = (
+                f"驅動已就緒，但無法自動建立 {printer_name}。"
+                f"\r\n\r\n已建立連接埠：{port_name}\r\n"
+                "已開啟手動新增印表機視窗，請選擇這個連接埠。"
+            )
+        else:
+            queue_failed_title = "Finish Setup Manually"
+            queue_failed_message = (
+                f"The driver is ready, but {printer_name} could not be created automatically."
+                f"\r\n\r\nCreated port: {port_name}\r\n"
+                "The Add Printer window has been opened. Please choose this port."
+            )
+
+        powershell_script = "\n".join(
+            [
+                "$ErrorActionPreference = 'Stop'",
+                "$ProgressPreference = 'SilentlyContinue'",
+                "Add-Type -AssemblyName System.Windows.Forms",
+                f"$printerName = '{self.escape_ps_single_quote(printer_name)}'",
+                f"$requestedDriverName = '{self.escape_ps_single_quote(driver_name)}'",
+                f"$driverName = '{self.escape_ps_single_quote(driver_name)}'",
+                f"$portName = '{self.escape_ps_single_quote(port_name)}'",
+                f"$hostName = '{self.escape_ps_single_quote(host_name)}'",
+                f"$hostIp = '{self.escape_ps_single_quote(host_ip)}'",
+                f"$portNumber = {port_number}",
+                f"$driverArchiveName = '{self.escape_ps_single_quote(driver_archive_name)}'",
+                f"$driverInfName = '{self.escape_ps_single_quote(driver_inf_name)}'",
+                f"$successTitle = '{self.escape_ps_single_quote(success_title)}'",
+                f"$successMessage = '{self.escape_ps_single_quote(success_message)}'",
+                f"$missingTitle = '{self.escape_ps_single_quote(missing_title)}'",
+                f"$missingMessage = '{self.escape_ps_single_quote(missing_message)}'",
+                f"$queueFailedTitle = '{self.escape_ps_single_quote(queue_failed_title)}'",
+                f"$queueFailedMessage = '{self.escape_ps_single_quote(queue_failed_message)}'",
+                "$scriptDir = $env:SCRIPT_DIR",
+                "if (($null -eq $scriptDir) -or ([string]$scriptDir).Trim() -eq '') {",
+                "    $scriptDir = (Get-Location).Path",
+                "}",
+                "$driverArchivePath = Join-Path -Path $scriptDir -ChildPath $driverArchiveName",
+                "$driverTempRoot = Join-Path -Path $env:TEMP -ChildPath ('PrtEasyServer_' + [System.IO.Path]::GetFileNameWithoutExtension($driverArchiveName))",
+                "function Test-Command($name) {",
+                "    return [bool](Get-Command -Name $name -ErrorAction SilentlyContinue)",
+                "}",
+                "function Escape-WqlValue($value) {",
+                "    if ($null -eq $value) {",
+                "        return ''",
+                "    }",
+                "    return ([string]$value).Replace(\"'\", \"''\")",
+                "}",
+                "function Get-PrintingAdminScript($scriptName) {",
+                "    $baseFolder = Join-Path -Path $env:WINDIR -ChildPath 'System32/Printing_Admin_Scripts'",
+                "    $candidates = @()",
+                "    foreach ($language in @($PSUICulture, $PSCulture, 'zh-TW', 'en-US')) {",
+                "        if (($null -ne $language) -and ([string]$language).Trim() -ne '') {",
+                "            $candidates += (Join-Path -Path $baseFolder -ChildPath ($language + '/' + $scriptName))",
+                "        }",
+                "    }",
+                "    $candidates += (Join-Path -Path $baseFolder -ChildPath $scriptName)",
+                "    foreach ($candidate in $candidates) {",
+                "        if (Test-Path -LiteralPath $candidate) {",
+                "            return $candidate",
+                "        }",
+                "    }",
+                "    return $null",
+                "}",
+                "$targetHost = $hostName",
+                "try { [System.Net.Dns]::GetHostAddresses($hostName) | Out-Null } catch { $targetHost = $hostIp }",
+                "function Get-InstalledPrinterPort($targetPortName) {",
+                "    if (Test-Command 'Get-PrinterPort') {",
+                "        return Get-PrinterPort -Name $targetPortName -ErrorAction SilentlyContinue",
+                "    }",
+                "    $escaped = Escape-WqlValue $targetPortName",
+                "    return Get-WmiObject -Class Win32_TCPIPPrinterPort -Filter ('Name=''' + $escaped + '''') -ErrorAction SilentlyContinue",
+                "}",
+                "function Ensure-PrinterPort($targetPortName, $targetHostName, $targetPortNumber) {",
+                "    if (Get-InstalledPrinterPort $targetPortName) {",
+                "        return $true",
+                "    }",
+                "    if (Test-Command 'Add-PrinterPort') {",
+                "        Add-PrinterPort -Name $targetPortName -PrinterHostAddress $targetHostName -PortNumber $targetPortNumber",
+                "        return [bool](Get-InstalledPrinterPort $targetPortName)",
+                "    }",
+                "    $prnport = Get-PrintingAdminScript 'prnport.vbs'",
+                "    if (-not $prnport) {",
+                "        return $false",
+                "    }",
+                "    $portArgs = @('//nologo', $prnport, '-a', '-r', $targetPortName, '-h', $targetHostName, '-o', 'raw', '-n', [string]$targetPortNumber)",
+                "    $portProcess = Start-Process -FilePath 'cscript.exe' -ArgumentList $portArgs -PassThru -Wait -WindowStyle Hidden",
+                "    if ($portProcess.ExitCode -eq 0) {",
+                "        Start-Sleep -Milliseconds 500",
+                "    }",
+                "    return [bool](Get-InstalledPrinterPort $targetPortName)",
+                "}",
+                "function Get-InstalledDriver($targetName) {",
+                "    if (($null -eq $targetName) -or ([string]$targetName).Trim() -eq '') {",
+                "        return $null",
+                "    }",
+                "    if (Test-Command 'Get-PrinterDriver') {",
+                "        $matched = Get-PrinterDriver -Name $targetName -ErrorAction SilentlyContinue",
+                "        if (-not $matched) {",
+                "            $matched = Get-PrinterDriver -ErrorAction SilentlyContinue |",
+                "                Where-Object { $_.Name -eq $targetName -or $_.Name -like ($targetName + '*') -or $targetName -like ($_.Name + '*') } |",
+                "                Select-Object -First 1",
+                "        }",
+                "        if ($matched) {",
+                "            return $matched",
+                "        }",
+                "    }",
+                "    $drivers = Get-WmiObject -Class Win32_PrinterDriver -ErrorAction SilentlyContinue",
+                "    if (-not $drivers) {",
+                "        return $null",
+                "    }",
+                "    return $drivers |",
+                "        Where-Object { $_.Name -eq $targetName -or $_.Name -like ($targetName + '*') -or $targetName -like ($_.Name + '*') } |",
+                "        Select-Object -First 1",
+                "}",
+                "function Get-InstalledPrinter($targetPrinterName) {",
+                "    if (Test-Command 'Get-Printer') {",
+                "        return Get-Printer -Name $targetPrinterName -ErrorAction SilentlyContinue",
+                "    }",
+                "    $escaped = Escape-WqlValue $targetPrinterName",
+                "    return Get-WmiObject -Class Win32_Printer -Filter ('Name=''' + $escaped + '''') -ErrorAction SilentlyContinue",
+                "}",
+                "function Expand-ZipCompat($zipPath, $destinationPath) {",
+                "    if (Test-Path -LiteralPath $destinationPath) {",
+                "        Remove-Item -LiteralPath $destinationPath -Recurse -Force",
+                "    }",
+                "    New-Item -ItemType Directory -Path $destinationPath -Force | Out-Null",
+                "    if (Test-Command 'Expand-Archive') {",
+                "        Expand-Archive -LiteralPath $zipPath -DestinationPath $destinationPath -Force",
+                "        return",
+                "    }",
+                "    try {",
+                "        Add-Type -AssemblyName System.IO.Compression.FileSystem -ErrorAction Stop",
+                "        [System.IO.Compression.ZipFile]::ExtractToDirectory($zipPath, $destinationPath)",
+                "        return",
+                "    } catch {",
+                "    }",
+                "    $shell = New-Object -ComObject Shell.Application",
+                "    $archiveNamespace = $shell.NameSpace($zipPath)",
+                "    $destinationNamespace = $shell.NameSpace($destinationPath)",
+                "    if ($archiveNamespace -and $destinationNamespace) {",
+                "        $destinationNamespace.CopyHere($archiveNamespace.Items(), 16)",
+                "        Start-Sleep -Seconds 2",
+                "        return",
+                "    }",
+                "    throw 'Unable to extract the driver archive.'",
+                "}",
+                "function Install-DriverFromInf($infPath, $modelName) {",
+                "    $printUiArgs = @(",
+                "        'printui.dll,PrintUIEntry',",
+                "        '/ia',",
+                "        ('/m \"{0}\"' -f $modelName),",
+                "        ('/f \"{0}\"' -f $infPath),",
+                "        '/q'",
+                "    )",
+                "    $installProcess = Start-Process -FilePath 'rundll32.exe' -ArgumentList $printUiArgs -PassThru -Wait -WindowStyle Hidden",
+                "    if ($installProcess.ExitCode -eq 0) {",
+                "        Start-Sleep -Milliseconds 800",
+                "    }",
+                "    return Get-InstalledDriver $modelName",
+                "}",
+                "function Install-PrinterFromInf($infPath, $modelName, $targetPrinterName, $targetPortName) {",
+                "    if (($null -eq $modelName) -or ([string]$modelName).Trim() -eq '') {",
+                "        return $null",
+                "    }",
+                "    $printUiArgs = @(",
+                "        'printui.dll,PrintUIEntry',",
+                "        '/if',",
+                "        ('/b \"{0}\"' -f $targetPrinterName),",
+                "        ('/f \"{0}\"' -f $infPath),",
+                "        ('/r \"{0}\"' -f $targetPortName),",
+                "        ('/m \"{0}\"' -f $modelName),",
+                "        '/z',",
+                "        '/q'",
+                "    )",
+                "    $installProcess = Start-Process -FilePath 'rundll32.exe' -ArgumentList $printUiArgs -PassThru -Wait -WindowStyle Hidden",
+                "    if ($installProcess.ExitCode -eq 0) {",
+                "        Start-Sleep -Milliseconds 1200",
+                "    }",
+                "    return Get-InstalledPrinter $targetPrinterName",
+                "}",
+                "function Install-DriverPackage($rootPath, $expectedInfName, $modelName) {",
+                "    $candidateInfs = @()",
+                "    if (($null -ne $expectedInfName) -and ([string]$expectedInfName).Trim() -ne '') {",
+                "        foreach ($item in (Get-ChildItem -LiteralPath $rootPath -Filter $expectedInfName -Recurse -ErrorAction SilentlyContinue | Where-Object { -not $_.PSIsContainer })) {",
+                "            if ($candidateInfs -notcontains $item.FullName) {",
+                "                $candidateInfs += $item.FullName",
+                "            }",
+                "        }",
+                "    }",
+                "    foreach ($item in (Get-ChildItem -LiteralPath $rootPath -Filter '*.inf' -Recurse -ErrorAction SilentlyContinue | Where-Object { -not $_.PSIsContainer })) {",
+                "        if ($candidateInfs -notcontains $item.FullName) {",
+                "            $candidateInfs += $item.FullName",
+                "        }",
+                "    }",
+                "    foreach ($infPath in $candidateInfs) {",
+                "        try {",
+                "            $resolved = Install-DriverFromInf $infPath $modelName",
+                "            if ($resolved) {",
+                "                return (New-Object PSObject -Property @{ Name = $resolved.Name; InfPath = $infPath })",
+                "            }",
+                "        } catch {",
+                "        }",
+                "    }",
+                "    return $null",
+                "}",
+                "function Install-PrinterPackage($rootPath, $expectedInfName, $modelNames, $targetPrinterName, $targetPortName) {",
+                "    $candidateInfs = @()",
+                "    if (($null -ne $expectedInfName) -and ([string]$expectedInfName).Trim() -ne '') {",
+                "        foreach ($item in (Get-ChildItem -LiteralPath $rootPath -Filter $expectedInfName -Recurse -ErrorAction SilentlyContinue | Where-Object { -not $_.PSIsContainer })) {",
+                "            if ($candidateInfs -notcontains $item.FullName) {",
+                "                $candidateInfs += $item.FullName",
+                "            }",
+                "        }",
+                "    }",
+                "    foreach ($item in (Get-ChildItem -LiteralPath $rootPath -Filter '*.inf' -Recurse -ErrorAction SilentlyContinue | Where-Object { -not $_.PSIsContainer })) {",
+                "        if ($candidateInfs -notcontains $item.FullName) {",
+                "            $candidateInfs += $item.FullName",
+                "        }",
+                "    }",
+                "    foreach ($infPath in $candidateInfs) {",
+                "        foreach ($modelName in $modelNames) {",
+                "            if (($null -eq $modelName) -or ([string]$modelName).Trim() -eq '') {",
+                "                continue",
+                "            }",
+                "            try {",
+                "                $installedPrinter = Install-PrinterFromInf $infPath $modelName $targetPrinterName $targetPortName",
+                "                if ($installedPrinter) {",
+                "                    return $installedPrinter",
+                "                }",
+                "            } catch {",
+                "            }",
+                "        }",
+                "    }",
+                "    return $null",
+                "}",
+                "function Ensure-PrinterQueue($targetPrinterName, $targetDriverName, $targetPortName) {",
+                "    if (Get-InstalledPrinter $targetPrinterName) {",
+                "        return $true",
+                "    }",
+                "    if (Test-Command 'Add-Printer') {",
+                "        Add-Printer -Name $targetPrinterName -DriverName $targetDriverName -PortName $targetPortName",
+                "        return [bool](Get-InstalledPrinter $targetPrinterName)",
+                "    }",
+                "    $prnmngr = Get-PrintingAdminScript 'prnmngr.vbs'",
+                "    if (-not $prnmngr) {",
+                "        return $false",
+                "    }",
+                "    $printerArgs = @('//nologo', $prnmngr, '-a', '-p', $targetPrinterName, '-m', $targetDriverName, '-r', $targetPortName)",
+                "    $printerProcess = Start-Process -FilePath 'cscript.exe' -ArgumentList $printerArgs -PassThru -Wait -WindowStyle Hidden",
+                "    if ($printerProcess.ExitCode -eq 0) {",
+                "        Start-Sleep -Milliseconds 800",
+                "    }",
+                "    return [bool](Get-InstalledPrinter $targetPrinterName)",
+                "}",
+                "if (-not (Ensure-PrinterPort $portName $targetHost $portNumber)) {",
+                "    throw ('Failed to create printer port: ' + $portName)",
+                "}",
+                "$packageExpanded = $false",
+                "$driverExists = Get-InstalledDriver $driverName",
+                "if ($driverExists) {",
+                "    $driverName = $driverExists.Name",
+                "}",
+                "if ((-not $driverExists) -and (Test-Path -LiteralPath $driverArchivePath)) {",
+                "    try {",
+                "        Expand-ZipCompat $driverArchivePath $driverTempRoot",
+                "        $packageExpanded = $true",
+                "        $installedDriver = Install-DriverPackage $driverTempRoot $driverInfName $requestedDriverName",
+                "        if ($installedDriver) {",
+                "            $driverExists = Get-InstalledDriver $installedDriver.Name",
+                "            if ($driverExists) {",
+                "                $driverName = $driverExists.Name",
+                "            }",
+                "        }",
+                "    } catch {",
+                "    }",
+                "}",
+                "$queueCreated = $false",
+                "if ($driverExists) {",
+                "    $queueCreated = Ensure-PrinterQueue $printerName $driverName $portName",
+                "}",
+                "if ((-not $queueCreated) -and (Test-Path -LiteralPath $driverArchivePath)) {",
+                "    if (-not $packageExpanded) {",
+                "        try {",
+                "            Expand-ZipCompat $driverArchivePath $driverTempRoot",
+                "            $packageExpanded = $true",
+                "        } catch {",
+                "        }",
+                "    }",
+                "}",
+                "if ((-not $queueCreated) -and $packageExpanded) {",
+                "    $modelNames = @()",
+                "    foreach ($candidateName in @($driverName, $requestedDriverName)) {",
+                "        if (($null -ne $candidateName) -and ([string]$candidateName).Trim() -ne '' -and ($modelNames -notcontains $candidateName)) {",
+                "            $modelNames += $candidateName",
+                "        }",
+                "    }",
+                "    try {",
+                "        $installedPrinter = Install-PrinterPackage $driverTempRoot $driverInfName $modelNames $printerName $portName",
+                "        if ($installedPrinter) {",
+                "            $queueCreated = $true",
+                "        }",
+                "    } catch {",
+                "    }",
+                "}",
+                "if (Test-Path -LiteralPath $driverTempRoot) {",
+                "    try { Remove-Item -LiteralPath $driverTempRoot -Recurse -Force } catch {}",
+                "}",
+                "$openPrintersFolder = {",
+                "    try {",
+                "        $shell = New-Object -ComObject Shell.Application",
+                "        $shell.Open('shell:PrintersFolder')",
+                "        Start-Sleep -Milliseconds 900",
+                "        $wshell = New-Object -ComObject WScript.Shell",
+                "        foreach ($title in @('Devices and Printers', 'Printers')) {",
+                "            if ($wshell.AppActivate($title)) {",
+                "                Start-Sleep -Milliseconds 150",
+                "                $wshell.SendKeys('^{HOME}')",
+                "                Start-Sleep -Milliseconds 100",
+                "                $wshell.SendKeys('{HOME}')",
+                "                break",
+                "            }",
+                "        }",
+                "    } catch {",
+                "        Start-Process explorer.exe -ArgumentList 'shell:PrintersFolder'",
+                "    }",
+                "}",
+                "$printerInstalled = Get-InstalledPrinter $printerName",
+                "if ((-not $printerInstalled) -and $queueCreated) {",
+                "    $printerInstalled = Get-InstalledPrinter $printerName",
+                "}",
+                "if ($printerInstalled) {",
+                "    [System.Windows.Forms.MessageBox]::Show(",
+                "        $successMessage,",
+                "        $successTitle,",
+                "        [System.Windows.Forms.MessageBoxButtons]::OK,",
+                "        [System.Windows.Forms.MessageBoxIcon]::Information",
+                "    ) | Out-Null",
+                "    & $openPrintersFolder",
+                "} else {",
+                "    $manualTitle = $missingTitle",
+                "    $manualMessage = $missingMessage",
+                "    if ($driverExists) {",
+                "        $manualTitle = $queueFailedTitle",
+                "        $manualMessage = $queueFailedMessage",
+                "    }",
+                "    [System.Windows.Forms.MessageBox]::Show(",
+                "        $manualMessage,",
+                "        $manualTitle,",
+                "        [System.Windows.Forms.MessageBoxButtons]::OK,",
+                "        [System.Windows.Forms.MessageBoxIcon]::Warning",
+                "    ) | Out-Null",
+                "    Start-Process rundll32.exe -ArgumentList 'printui.dll,PrintUIEntry /il'",
+                "}",
+            ]
+        )
+        lines = [
+            "@echo off",
+            "rem PrtEasyServer readable installer - embedded UTF-8 PowerShell",
+            "setlocal",
+            "",
+            'set "SCRIPT_DIR=%~dp0"',
+            'set "SELF=%~f0"',
+            'set "PS1OUT=%TEMP%\\PrtEasyServer_Setup_%RANDOM%_%RANDOM%.ps1"',
+            "",
+            "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"$prefix = '#PS1# '; $lines = [System.IO.File]::ReadAllLines($env:SELF, [System.Text.Encoding]::UTF8); $ps = foreach ($line in $lines) { if ($line.StartsWith($prefix)) { $line.Substring($prefix.Length) } }; $utf8Bom = New-Object System.Text.UTF8Encoding -ArgumentList $true; [System.IO.File]::WriteAllLines($env:PS1OUT, [string[]]$ps, $utf8Bom)\"",
+            "if errorlevel 1 (",
+            "    echo Failed to extract embedded PowerShell script.",
+            "    pause",
+            "    exit /b 1",
+            ")",
+            "",
+            'powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%PS1OUT%"',
+            'set "ERR=%ERRORLEVEL%"',
+            "",
+            'del "%PS1OUT%" >nul 2>nul',
+            "",
+            'if not "%ERR%"=="0" (',
+            '    echo Installer failed. ErrorLevel=%ERR%',
+            '    pause',
+            '    exit /b %ERR%',
+            ")",
+            "",
+            "endlocal",
+            "exit /b 0",
+            "",
+            "# POWERSHELL_START - lines below are plain UTF-8 PowerShell, prefixed so cmd.exe will not parse them",
+        ]
+        lines.extend([f"#PS1# {line}" if line else "#PS1#" for line in powershell_script.splitlines()])
+
+        safe_name = self.sanitize_port_name_component(printer_name)[:24]
+        filename = f"{APP_NAME}_Setup_{entry['index']}_{safe_name}_{port_number}.bat"
+        return "\r\n".join(lines), filename
 
 
 class TestClient(TestClient):
