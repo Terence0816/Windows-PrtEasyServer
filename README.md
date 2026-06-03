@@ -17,7 +17,6 @@ PrtEasyServer is a Windows RAW 9100 network print server for local USB printers 
 - Added `build_exe_win10_11.bat` and `build_exe_win7_10_11.bat` for clearer build targets.
 - Added Windows 7 server-side support for hosting printers and packaging printer drivers.
 - Added Windows 7 client-side support for installer BAT execution and automatic driver package installation.
-- Included `Python38.zip` so Win7-compatible builds can be prepared with Python 3.8 more easily.
 - Reduced the packaged file size significantly when using `build_exe_win7_10_11.bat`.
 
 ### v1.1.1.0
@@ -55,8 +54,7 @@ PrtEasyServer is a Windows RAW 9100 network print server for local USB printers 
 ## Build Scripts
 
 - `build_exe_win10_11.bat`: standard build flow for Windows 10 and Windows 11
-- `build_exe_win7_10_11.bat`: Windows 7 compatible build flow using Python 3.8 and reduced packaged size
-- `Python38.zip`: bundled helper package for preparing Win7-compatible builds
+- `build_exe_win7_10_11.bat`: Windows 7 compatible build flow with auto-download support for the required Python 3.8 runtime
 - `requirements-win7.txt`: Win7-specific build dependencies
 
 ## Typical Use Cases
@@ -125,7 +123,6 @@ PrtEasyServer 是一個 Windows RAW 9100 網路印表機伺服器，可把本機
 - 新增 `build_exe_win10_11.bat` 與 `build_exe_win7_10_11.bat`，讓打包目標更清楚。
 - 新增 Windows 7 伺服器端支援，可在 Win7 上架設分享並打包印表機驅動程式。
 - 新增 Windows 7 連接端支援，設定檔與驅動包可在 Win7 用戶端自動安裝。
-- 內附 `Python38.zip`，方便準備可相容 Win7 的 Python 3.8 打包環境。
 - 使用 `build_exe_win7_10_11.bat` 時，可明顯減少打包後的檔案大小。
 
 ### v1.1.1.0
@@ -162,8 +159,7 @@ PrtEasyServer 是一個 Windows RAW 9100 網路印表機伺服器，可把本機
 ## 打包方式
 
 - `build_exe_win10_11.bat`：適合 Windows 10 / 11 的一般打包流程
-- `build_exe_win7_10_11.bat`：適合需要 Win7 相容性的打包流程，使用 Python 3.8 並縮小封裝大小
-- `Python38.zip`：內附給 Win7 相容打包流程使用的 Python 3.8 環境包
+- `build_exe_win7_10_11.bat`：適合需要 Win7 相容性的打包流程，缺少 Python 3.8 時會自動從 Release 下載
 - `requirements-win7.txt`：Win7 專用打包相依套件
 
 ## 適用情境
