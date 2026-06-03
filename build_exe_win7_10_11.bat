@@ -8,12 +8,12 @@ set "LOCAL_PY_DIR=%CD%\Python38"
 set "LOCAL_PY_EXE=%LOCAL_PY_DIR%\python.exe"
 set "LOCAL_PIP_EXE=%LOCAL_PY_DIR%\Scripts\pip.exe"
 set "LOCAL_PY_ZIP=%CD%\Python38.zip"
-set "PYTHON38_ZIP_URL=https://github.com/Terence0816/Windows-PrtEasyServer/releases/latest/download/Python38.zip"
+set "PYTHON38_ZIP_URL=https://github.com/Terence0816/Windows-PrtEasyServer/releases/download/v1.0.0.0/Python38.zip"
 
 if not exist "%LOCAL_PY_EXE%" (
     if not exist "%LOCAL_PY_ZIP%" (
         echo Local Python38.zip was not found.
-        echo Downloading Python38.zip from GitHub Release...
+        echo Downloading Python38.zip from the compatibility release...
         powershell -NoProfile -ExecutionPolicy Bypass -Command ^
             "$url='%PYTHON38_ZIP_URL%'; " ^
             "$dest=Join-Path (Get-Location) 'Python38.zip'; " ^
@@ -22,7 +22,7 @@ if not exist "%LOCAL_PY_EXE%" (
             "$wc.DownloadFile($url, $dest)"
         if errorlevel 1 (
             echo.
-            echo Failed to download Python38.zip from GitHub Release.
+            echo Failed to download Python38.zip from the compatibility release.
             pause
             exit /b 1
         )
@@ -101,7 +101,7 @@ if not defined PY_CMD (
 
 if not defined PY_CMD (
     echo Python 3.8 was not found.
-    echo The script can auto-download Python38.zip from GitHub Release when needed.
+    echo The script can auto-download Python38.zip from the compatibility release when needed.
     echo You can also place Python38.zip next to this BAT file, or provide a Python38 folder.
     echo You can also set PY38_EXE to the full python.exe path.
     echo Please install Python 3.8.x, then try again.
