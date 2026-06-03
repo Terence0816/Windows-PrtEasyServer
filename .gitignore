@@ -204,6 +204,9 @@ cython_debug/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
 
+# Local runtime config generated next to the executable/script
+config.json
+
 # Ruff stuff:
 .ruff_cache/
 

@@ -315,7 +315,6 @@ def build_gui_exe(target):
             "--noconsole",
             f"--name={output_name}",
             "--icon=printer.ico",
-            "--add-data=config.json;.",
             "--add-data=printer.png;.",
             f"--version-file={version_file}",
             "--hidden-import=pystray",
