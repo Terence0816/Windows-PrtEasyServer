@@ -2,7 +2,7 @@
 
 Native C++ Windows RAW 9100 Network Print Server and TCP/IP Printer Server for local USB printers and Windows-installed printers.
 
-[Releases](https://github.com/Terence0816/Windows-PrtEasyServer/releases) | [Latest Official Build `v2.0.0.0`](https://github.com/Terence0816/Windows-PrtEasyServer/releases/download/v2.0.0.0/PrtEasyServer.exe) | [MIT License](./LICENSE)
+[![Downloads](https://img.shields.io/github/downloads/Terence0816/Windows-PrtEasyServer/total?label=Downloads&color=1f6feb)](https://github.com/Terence0816/Windows-PrtEasyServer/releases) | [Releases](https://github.com/Terence0816/Windows-PrtEasyServer/releases) | [Latest Official Build `v2.0.0.0`](https://github.com/Terence0816/Windows-PrtEasyServer/releases/download/v2.0.0.0/PrtEasyServer.exe) | [MIT License](./LICENSE)
 
 English | [繁體中文](#zh-tw)
 
