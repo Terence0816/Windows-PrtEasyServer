@@ -1,8 +1,0 @@
-# Windows 7 compatible build environment
-# Build with Python 3.8.x and prefer older toolchain-friendly wheels.
-pywin32==306
-reportlab==4.0.9
-pyinstaller==4.8
-pystray==0.19.5
-Pillow==9.5.0
-psutil==5.9.8

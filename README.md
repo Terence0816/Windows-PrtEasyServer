@@ -1,108 +1,104 @@
 # PrtEasyServer
 
-Windows RAW 9100 Network Print Server and TCP/IP Printer Server for local USB printers and Windows-installed printers.
+Native C++ Windows RAW 9100 Network Print Server and TCP/IP Printer Server for local USB printers and Windows-installed printers.
 
-[![Release](https://img.shields.io/github/v/release/Terence0816/Windows-PrtEasyServer?label=Release&color=2d7d46)](https://github.com/Terence0816/Windows-PrtEasyServer/releases)
-[![Downloads](https://img.shields.io/github/downloads/Terence0816/Windows-PrtEasyServer/total?label=Downloads&color=1f6feb)](https://github.com/Terence0816/Windows-PrtEasyServer/releases)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+[Releases](https://github.com/Terence0816/Windows-PrtEasyServer/releases) | [Latest Official Build `v2.0.0.0`](https://github.com/Terence0816/Windows-PrtEasyServer/releases/download/v2.0.0.0/PrtEasyServer.exe) | [MIT License](./LICENSE)
 
 English | [繁體中文](#zh-tw)
 
-PrtEasyServer is a Windows RAW 9100 network print server for local USB printers and Windows-installed printers. It turns a Windows PC into a lightweight TCP/IP printer server, so client PCs can install shared printers through a standard IP port without SMB printer sharing, Windows network neighborhood prompts, or account/password dialogs.
+PrtEasyServer is now a native C++ rewrite of the original Python-packaged application. It turns a Windows PC into a lightweight RAW 9100 / TCP-IP printer server, so client PCs can install shared printers through a standard IP port without SMB printer sharing, Windows network neighborhood prompts, or account/password dialogs.
 
 ## Version History
 
+### v2.0.0.0
+
+- Major architecture update: the main application was rewritten from the original Python packaged version into a native C++ version.
+- Faster startup and improved responsiveness.
+- Main executable size reduced dramatically, from about 25 MB in the earliest version to about 728 KB.
+- Removed the Python Runtime dependency for a cleaner and lighter runtime environment.
+- Improved Windows 7 compatibility compared with the previous Python packaged version.
+- Continued support for Windows 7 / 10 / 11.
+- Added support for custom `.txt` language files.
+- Built-in `tw` and `en` language templates are generated automatically, and users can add files such as `jp.txt` to switch the UI to additional languages.
+
 ### v1.2.0.0
 
-- Added `build_exe_win10_11.bat` and `build_exe_win7_10_11.bat` for clearer build targets.
-- Added Windows 7 server-side support for hosting printers and packaging printer drivers.
+- Added Windows 7 server-side support for printer hosting and driver package export.
 - Added Windows 7 client-side support for installer BAT execution and automatic driver package installation.
-- Reduced the packaged file size significantly when using `build_exe_win7_10_11.bat`.
+- Reduced packaged file size significantly in the final Python-packaged generation.
 
 ### v1.1.1.0
 
-- The installer BAT no longer launches PowerShell through Base64-encoded script content.
-- It now uses a readable UTF-8 embedded PowerShell script that is extracted and executed at runtime.
-- Chinese and English installer messages are preserved while improving readability and reducing suspicious script patterns.
+- Replaced Base64 PowerShell launch flow with a readable UTF-8 embedded installer script.
 
 ### v1.1.0.0
 
-- Added a built-in web page for downloading both the installer BAT and the matching driver package.
-- Added automatic driver-package handling so the client PC can try driver installation before falling back to manual setup.
-- Added bilingual web page and installer messaging, multi-printer management polish, and improved build metadata for the packaged EXE.
+- Added the built-in web page for installer BAT and driver package download.
 
 ### v1.0.0.0
 
 - Initial public release of PrtEasyServer.
-- Shared local Windows printers over RAW 9100 TCP/IP ports without SMB printer sharing.
-- Included the desktop management UI, startup support, tray behavior, and the basic printer setup workflow.
 
 ## Highlights
 
-- Share one or more local printers at the same time
-- Windows RAW 9100 print server for standard TCP/IP printer port setup
-- TCP/IP printer server flow for local USB printers and Windows-installed printers
-- No SMB printer sharing, no network neighborhood password prompt
-- Built-in web page for printer list, installer BAT download, and driver package download
-- Installer BAT is generated dynamically for each shared printer
-- Bilingual desktop UI, web page, and installer messages
-- Hostname-first printer connection flow for changing LAN IP environments
-- Auto firewall rule check when app starts or services start
-- Windows 7 / 10 / 11 compatible build flow with dedicated batch files
-- Minimize to tray and startup support
+- Native C++ x64 main application
+- RAW 9100 printer sharing over TCP/IP
+- Built-in setup web page
+- Automatic installer BAT generation
+- Driver package download and installation flow
+- Windows 7 / 10 / 11 support
+- No Python Runtime dependency in the main application
+- Custom language file support through external `.txt` files
 
-## Build Scripts
+## Repository Layout
 
-- `build_exe_win10_11.bat`: standard build flow for Windows 10 and Windows 11
-- `build_exe_win7_10_11.bat`: Windows 7 compatible build flow with auto-download support for the required Python 3.8 runtime
-- `requirements-win7.txt`: Win7-specific build dependencies
+- `src/`: main C++ Win32 source code
+- `assets/printer.ico`: application icon used by the native resources
+- `assets/screenshots/`: README screenshots
 
-## Typical Use Cases
+The repository now focuses on the native C++ source tree. Local/private helper build scripts are intentionally not included here so the root stays cleaner.
 
-- Turn a Windows PC into a local network print server
-- Share a USB printer as a RAW 9100 network printer
-- Install printers on client PCs through a TCP/IP port instead of SMB sharing
-- Avoid Windows shared-printer credential prompts in office or home LAN environments
-- Keep printer connections stable by preferring hostname-based setup when LAN IP changes
-- Keep older Windows 7 machines working as print servers or print clients
-
-## Screenshots
-
-### English Desktop UI
-
-![English Desktop UI](./assets/screenshots/ui-en.png)
+## English Screenshots
 
 ### English Web Page
 
-![English Web Page](./assets/screenshots/web-en.png)
+![English Web Page](./assets/screenshots/web-en-v2.png)
 
-## Video Demo
+### English Settings
 
-Click the preview below to watch the YouTube demo:
+![English Settings](./assets/screenshots/settings-en-v2.png)
 
-[![Watch the PrtEasyServer demo on YouTube](https://img.youtube.com/vi/uwNWGIuaMrA/hqdefault.jpg)](https://youtu.be/uwNWGIuaMrA)
+## Custom Language Example: Japanese via `jp.txt`
 
-- YouTube: [https://youtu.be/uwNWGIuaMrA](https://youtu.be/uwNWGIuaMrA)
+The screenshots below show a Japanese UI created by manually adding a custom `jp.txt` language file. This means you can create your own `.txt` language file and use it to switch PrtEasyServer into another language without rebuilding the main program.
+
+### Japanese Main UI via `jp.txt`
+
+![Japanese Main UI via jp.txt](./assets/screenshots/ui-ja-custom-jp-txt-v2.png)
+
+### Japanese Settings via `jp.txt`
+
+![Japanese Settings via jp.txt](./assets/screenshots/settings-ja-custom-jp-txt-v2.png)
+
+### Japanese Web Page via `jp.txt`
+
+![Japanese Web Page via jp.txt](./assets/screenshots/web-ja-custom-jp-txt-v2.png)
 
 ## Download
 
-- Latest releases: [Releases](https://github.com/Terence0816/Windows-PrtEasyServer/releases)
-- Official `v1.2.0.0` download: [PrtEasyServer.exe](https://github.com/Terence0816/Windows-PrtEasyServer/releases/download/v1.2.0.0/PrtEasyServer.exe)
-- The release page also shows the current download count for the official build
+- Release page: [Releases](https://github.com/Terence0816/Windows-PrtEasyServer/releases)
+- Official `v2.0.0.0` build: [PrtEasyServer.exe](https://github.com/Terence0816/Windows-PrtEasyServer/releases/download/v2.0.0.0/PrtEasyServer.exe)
+- GitHub release assets show the current download count for the official build
 
 ## Search Keywords
 
-Windows RAW 9100 print server, Windows network print server, TCP/IP printer server, Windows 7 print server, local printer sharing, USB printer over network, IP printer setup, no SMB printer sharing, RAW 9100 printer host, network printer installer BAT, GitHub print server project
+Windows RAW 9100 print server, native C++ print server, TCP/IP printer server, Windows network print server, local USB printer sharing, IP printer setup, no SMB printer sharing, custom language txt, Win32 print server
 
 ## Credits
 
-This project is based on PrinterOne by xtieume.  
-Original project: https://github.com/xtieume/PrinterOne
-
-Original attribution:
-
-- Original Copyright (c) 2025 xtieume@gmail.com
-- This repository contains modifications, UI changes, multilingual support, web installer download flow, multi-printer support, Windows 7 compatibility work, and packaging updates by Terence0816
+Based on PrinterOne by xtieume.  
+Original project: https://github.com/xtieume/PrinterOne  
+Original Copyright (c) 2025 xtieume@gmail.com
 
 ## License
 
@@ -114,100 +110,99 @@ This repository is released under the MIT License. See [LICENSE](./LICENSE).
 
 # 繁體中文
 
-PrtEasyServer 是一個 Windows RAW 9100 網路印表機伺服器，可把本機 USB 印表機或已安裝在 Windows 上的印表機轉成 TCP/IP 網路印表機。它讓使用者能透過標準 IP 連接埠安裝印表機，不需要使用 Windows 網芳或 SMB 印表機分享，也不需要碰到帳號密碼提示。
+PrtEasyServer 現在已改為原生 C++ 版本，是一個 Windows RAW 9100 網路印表機伺服器，可把本機 USB 印表機或已安裝在 Windows 上的印表機轉成 TCP/IP 網路印表機。使用者可透過標準 IP 連接埠安裝印表機，不需要使用 Windows 網芳或 SMB 印表機分享，也不需要碰到帳號密碼提示。
 
 ## 版本更新紀錄
 
+### v2.0.0.0
+
+- 本版本為重大架構更新，主程式已從原本的 Python 打包版本重寫為 C++ 原生版本。
+- 主程式改以 C++ 重新編譯，啟動速度與操作反應更快。
+- 主程式檔案大小大幅降低，從最初版本約 25MB 降至約 728KB。
+- 移除對 Python Runtime 的依賴，執行環境更乾淨。
+- 提升 Windows 7 相容性，較原本 Python 打包版本更不容易受到缺少元件或 Runtime 影響。
+- 維持 Windows 7 / 10 / 11 支援。
+- 支援自定義 `.txt` 語言檔。
+- 內建 `tw` 與 `en` 語言模板會自動產生，使用者也可自行新增 `jp.txt` 等外部語言檔來切換介面語言。
+
 ### v1.2.0.0
 
-- 新增 `build_exe_win10_11.bat` 與 `build_exe_win7_10_11.bat`，讓打包目標更清楚。
-- 新增 Windows 7 伺服器端支援，可在 Win7 上架設分享並打包印表機驅動程式。
-- 新增 Windows 7 連接端支援，設定檔與驅動包可在 Win7 用戶端自動安裝。
-- 使用 `build_exe_win7_10_11.bat` 時，可明顯減少打包後的檔案大小。
+- 支援 WIN7 伺服器端架設與打包印表機驅動程式。
+- 支援 WIN7 連接端自動執行設定檔與驅動包安裝。
+- Python 打包版本末期已大幅減少主程式檔案體積。
 
 ### v1.1.1.0
 
-- 安裝 BAT 不再使用 Base64 編碼的 PowerShell 啟動方式。
-- 改為可讀的 UTF-8 明文嵌入式 PowerShell 腳本，執行時再抽出使用。
-- 保留中英文安裝訊息，同時讓內容更容易檢查，也降低部分可疑腳本特徵。
+- 安裝 BAT 改為可讀的 UTF-8 明文嵌入式腳本流程。
 
 ### v1.1.0.0
 
-- 新增內建網頁，可直接下載安裝 BAT 與對應的驅動程式封裝。
-- 新增驅動程式自動安裝流程，讓用戶端可先嘗試自動安裝，再視情況回退手動安裝。
-- 補強中英文網頁、安裝訊息、多印表機管理細節，以及 EXE 打包版本資訊。
+- 新增內建網頁，可下載安裝 BAT 與驅動程式。
 
 ### v1.0.0.0
 
 - PrtEasyServer 首次公開版本。
-- 可將本機 Windows 印表機透過 RAW 9100 方式分享成 TCP/IP 網路印表機，不需 SMB 印表機分享。
-- 內含桌面管理介面、系統匣/開機啟動支援，以及基本的印表機安裝流程。
 
 ## 功能特色
 
-- 可同時分享多台本機印表機
-- 採用 Windows RAW 9100 列印服務，適合標準 TCP/IP 連接埠安裝
-- 可將 USB 印表機或本機已安裝印表機快速轉成 TCP/IP 網路印表機
-- 不使用 SMB 印表機分享，不會跳出網芳帳密問題
-- 內建網頁頁面，可直接下載安裝 BAT 與驅動程式
-- 介面、網頁、安裝訊息支援中文與英文
-- 以主機名稱為優先建立連線，較適合內部 IP 會變動的環境
-- 程式啟動或伺服器啟動時可自動檢查防火牆規則
-- 提供可相容 Windows 7 / 10 / 11 的專用打包流程
-- 支援最小化到系統匣與開機自動啟動
+- 原生 C++ x64 主程式
+- RAW 9100 TCP/IP 印表機分享
+- 內建安裝設定網頁
+- 自動產生安裝 BAT
+- 驅動程式下載與安裝流程
+- 支援 Windows 7 / 10 / 11
+- 主程式不再依賴 Python Runtime
+- 支援外部 `.txt` 自定義語言檔
 
-## 打包方式
+## 儲存庫結構
 
-- `build_exe_win10_11.bat`：適合 Windows 10 / 11 的一般打包流程
-- `build_exe_win7_10_11.bat`：適合需要 Win7 相容性的打包流程，缺少 Python 3.8 時會自動從 Release 下載
-- `requirements-win7.txt`：Win7 專用打包相依套件
+- `src/`：主要 C++ Win32 原始碼
+- `assets/printer.ico`：原生資源檔使用的程式圖示
+- `assets/screenshots/`：README 畫面截圖
 
-## 適用情境
+目前 GitHub 儲存庫以原生 C++ 原始碼為主，未放入本機專用的輔助編譯批次檔，讓根目錄維持比較乾淨。
 
-- 需要把 Windows 電腦變成網路印表機伺服器
-- 想把 USB 印表機快速分享成 RAW 9100 IP 印表機
-- 希望用 TCP/IP 連接埠安裝印表機，而不是使用 SMB 分享
-- 不想讓使用者碰到共享印表機的帳號密碼驗證
-- 區網 IP 可能變動，但仍希望主機名稱連線維持穩定
-- 需要讓較舊的 Windows 7 主機或用戶端也能繼續使用
+## 中文畫面
 
-## 畫面預覽
+### 中文主介面
 
-### 中文桌面介面
+![中文主介面](./assets/screenshots/ui-zh-tw-main-v2.png)
 
-![中文桌面介面](./assets/screenshots/ui-zh-tw.png)
+### 繁體設定頁
 
-### 中文網頁介面
+![繁體設定頁](./assets/screenshots/settings-zh-tw-v2.png)
 
-![中文網頁介面](./assets/screenshots/web-zh-tw.png)
+## 自定義語言範例：手動新增 `jp.txt`
 
-## 影片示範
+以下畫面示範的是手動新增 `jp.txt` 後切換出的日文介面。也就是說，你可以自行建立其他 `.txt` 語言檔，配合 PrtEasyServer 做額外語言切換，不需要重新編譯主程式。
 
-點擊下方預覽圖即可開啟 YouTube 示範影片：
+### 日文主介面（手動建立 `jp.txt`）
 
-[![觀看 PrtEasyServer YouTube 示範影片](https://img.youtube.com/vi/uwNWGIuaMrA/hqdefault.jpg)](https://youtu.be/uwNWGIuaMrA)
+![日文主介面（手動建立 jp.txt）](./assets/screenshots/ui-ja-custom-jp-txt-v2.png)
 
-- YouTube 影片連結：[https://youtu.be/uwNWGIuaMrA](https://youtu.be/uwNWGIuaMrA)
+### 日文設定頁（手動建立 `jp.txt`）
+
+![日文設定頁（手動建立 jp.txt）](./assets/screenshots/settings-ja-custom-jp-txt-v2.png)
+
+### 日文網頁（手動建立 `jp.txt`）
+
+![日文網頁（手動建立 jp.txt）](./assets/screenshots/web-ja-custom-jp-txt-v2.png)
 
 ## 下載
 
 - 版本下載頁面：[Releases](https://github.com/Terence0816/Windows-PrtEasyServer/releases)
-- 正式版 `v1.2.0.0`：[PrtEasyServer.exe](https://github.com/Terence0816/Windows-PrtEasyServer/releases/download/v1.2.0.0/PrtEasyServer.exe)
-- GitHub 發行頁右側與上方徽章都可以看到目前的下載次數
+- 正式版 `v2.0.0.0`：[PrtEasyServer.exe](https://github.com/Terence0816/Windows-PrtEasyServer/releases/download/v2.0.0.0/PrtEasyServer.exe)
+- GitHub 發行頁右側可查看目前的下載次數
 
 ## 搜尋關鍵字
 
-Windows 印表機伺服器、網路印表機伺服器、RAW 9100、TCP/IP 印表機伺服器、Windows 7 印表機伺服器、USB 印表機分享、IP 印表機安裝、無 SMB 分享、無網芳帳密、印表機安裝 BAT、Windows 網路列印
+Windows RAW 9100 印表機伺服器、C++ 印表機伺服器、TCP/IP 印表機伺服器、Windows 網路印表機伺服器、USB 印表機分享、IP 印表機安裝、自定義語言 txt、無 SMB 分享、Win32 印表機分享
 
 ## 原作與致謝
 
 本專案基於 PrinterOne 修改而成。  
-原始專案：https://github.com/xtieume/PrinterOne
-
-原作資訊：
-
-- Original Copyright (c) 2025 xtieume@gmail.com
-- 本專案由 Terence0816 進行後續修改，包含介面調整、多語系、內建網頁、安裝 BAT、多印表機支援、Windows 7 相容性與封裝調整
+原始專案：https://github.com/xtieume/PrinterOne  
+Original Copyright (c) 2025 xtieume@gmail.com
 
 ## 授權
 
