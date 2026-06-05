@@ -168,6 +168,10 @@ PrtEasyServer 現在已改為原生 C++ 版本，是一個 Windows RAW 9100 網�
 
 ![中文主介面](./assets/screenshots/ui-zh-tw-main-v2.png)
 
+### 中文網頁
+
+![中文網頁](./assets/screenshots/web-zh-tw-v2.png)
+
 ### 繁體設定頁
 
 ![繁體設定頁](./assets/screenshots/settings-zh-tw-v2.png)
