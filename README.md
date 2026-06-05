@@ -60,6 +60,10 @@ The repository now focuses on the native C++ source tree. Local/private helper b
 
 ## English Screenshots
 
+### English Main UI
+
+![English Main UI](./assets/screenshots/ui-en-main-v2.png)
+
 ### English Web Page
 
 ![English Web Page](./assets/screenshots/web-en-v2.png)
