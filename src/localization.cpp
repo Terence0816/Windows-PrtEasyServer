@@ -53,6 +53,7 @@ StringMap BuildBaseEnglishStrings() {
         {L"label_language", L"Interface language"},
         {L"button_apply_language", L"Apply language"},
         {L"language_option_tw", L"Traditional Chinese"},
+        {L"language_option_zh-cn", L"Simplified Chinese"},
         {L"language_option_en", L"English"},
         {L"frame_about", L"About"},
         {L"about_text", L"PrtEasyServer - Windows Network Print Server\r\nVersion 2.0.0\r\n\r\nC++ x64 edition for Windows 7 / 10 / 11.\r\nSupports RAW 9100 print sharing and a built-in setup web page."},
@@ -174,6 +175,7 @@ StringMap BuildBaseTraditionalChineseStrings() {
         {L"label_language", L"介面語言"},
         {L"button_apply_language", L"套用語言"},
         {L"language_option_tw", L"繁體中文"},
+        {L"language_option_zh-cn", L"簡體中文"},
         {L"language_option_en", L"English"},
         {L"frame_about", L"關於"},
         {L"about_text", L"PrtEasyServer - Windows 網路印表機伺服器\r\n版本 2.0.0\r\n\r\nC++ x64 版本，支援 Windows 7 / 10 / 11。\r\n提供 RAW 9100 列印分享與內建安裝設定網頁。"},
@@ -246,6 +248,129 @@ StringMap BuildBaseTraditionalChineseStrings() {
     };
 }
 
+StringMap BuildBaseSimplifiedChineseStrings() {
+    return {
+        {L"app_title", L"PrtEasyServer - Windows 网络打印机服务器"},
+        {L"tab_server", L"服务器管理"},
+        {L"tab_test", L"测试工具"},
+        {L"tab_settings", L"设置"},
+        {L"frame_config", L"打印机配置"},
+        {L"config_hint", L"可同时新增多组打印机配置，启动后会一起监听所有已填写的端口。"},
+        {L"label_installed_printer", L"已安装打印机"},
+        {L"label_raw_port", L"端口"},
+        {L"label_web_port", L"网页端口"},
+        {L"web_port_hint", L"设为 80 时，其他计算机可直接输入服务器 IP 开启设置页面。"},
+        {L"button_add", L"新增"},
+        {L"button_add_group", L"新增一组"},
+        {L"button_update", L"更新"},
+        {L"button_update_group", L"更新这组"},
+        {L"button_remove", L"删除"},
+        {L"button_remove_group", L"删除一组"},
+        {L"button_refresh_printers", L"刷新打印机"},
+        {L"button_save", L"保存设置"},
+        {L"button_start", L"启动服务器"},
+        {L"button_stop", L"停止服务器"},
+        {L"button_open_web", L"开启网页"},
+        {L"button_add_startup", L"添加"},
+        {L"button_remove_startup", L"移除"},
+        {L"column_printer", L"打印机"},
+        {L"column_port", L"端口"},
+        {L"frame_server_control", L"服务器控制"},
+        {L"frame_autostart", L"开机自动启动"},
+        {L"frame_server_logs", L"服务器日志"},
+        {L"status_running", L"[OK] 服务器运行中"},
+        {L"status_stopped", L"[STOP] 服务器已停止"},
+        {L"startup_enabled", L"[OK] 已添加开机自动启动"},
+        {L"startup_disabled", L"[STOP] 未启用开机自动启动"},
+        {L"status_web_url", L"网页设置"},
+        {L"status_ports", L"RAW 端口"},
+        {L"status_printer_count", L"已设置打印机"},
+        {L"frame_test_config", L"联机测试"},
+        {L"label_test_port", L"测试端口"},
+        {L"button_test_connection", L"测试联机"},
+        {L"button_send_sample", L"发送测试页"},
+        {L"frame_test_logs", L"测试日志"},
+        {L"test_intro", L"测试工具固定连到 localhost，用来验证某个 RAW 监听端口是否可用。"},
+        {L"frame_app_settings", L"应用程序设置"},
+        {L"setting_minimize_to_tray", L"关闭窗口时缩小到托盘"},
+        {L"frame_language", L"语言"},
+        {L"label_language", L"接口语言"},
+        {L"button_apply_language", L"应用语言"},
+        {L"language_option_tw", L"繁体中文"},
+        {L"language_option_zh-cn", L"简体中文"},
+        {L"language_option_en", L"English"},
+        {L"frame_about", L"关于"},
+        {L"about_text", L"PrtEasyServer - Windows 网络打印机服务器\r\n版本 2.0.0\r\n\r\nC++ x64 版本，支持 Windows 7 / 10 / 11。\r\n提供 RAW 9100 打印分享与内建安装设置网页。"},
+        {L"tray_show_window", L"显示窗口"},
+        {L"tray_hide_window", L"隐藏窗口"},
+        {L"tray_quit", L"结束程序"},
+        {L"message_select_printer", L"请先选择已安装的打印机。"},
+        {L"message_invalid_raw_port", L"RAW 端口必须介于 1 到 65535 之间。"},
+        {L"message_invalid_web_port", L"网页端口必须介于 1 到 65535 之间。"},
+        {L"message_duplicate_port", L"每台打印机都必须使用不同的 RAW 端口。"},
+        {L"message_save_failed", L"保存 config.json 失败。"},
+        {L"message_start_server_first", L"请先启动服务器。"},
+        {L"message_invalid_test_port", L"请输入正确的测试端口。"},
+        {L"message_language_save_failed", L"保存语言设置失败。"},
+        {L"installer_success_title", L"安装完成"},
+        {L"installer_success_message", L"打印机队列「__PRINTER_NAME__」已可使用。"},
+        {L"installer_missing_title", L"找不到驱动程序"},
+        {L"installer_missing_message", L"已建立打印机端口，但找不到对应的驱动程序。请手动完成新增打印机精灵。"},
+        {L"installer_queue_failed_title", L"请手动完成安装"},
+        {L"installer_queue_failed_message", L"已找到驱动程序套件，但无法自动建立打印机队列。现在将开启新增打印机窗口。"},
+        {L"installer_error_extract_archive", L"无法解压缩驱动程序压缩文件。"},
+        {L"installer_error_create_port", L"建立打印机端口失败："},
+        {L"installer_extract_script_failed", L"无法解开内嵌的 PowerShell 安装脚本。"},
+        {L"installer_batch_failed", L"安装程序失败。ErrorLevel=%ERR%"},
+        {L"log_added_printer", L"已新增打印机配置: %s -> %d"},
+        {L"log_updated_printer", L"已更新打印机配置: %s -> %d"},
+        {L"log_removed_printer", L"已删除打印机配置: %s"},
+        {L"log_saved_config", L"已保存配置文件: %s"},
+        {L"log_start_done", L"已发送启动服务器要求。"},
+        {L"log_start_failed", L"服务器启动失败。"},
+        {L"log_stop_done", L"已发送停止服务器要求。"},
+        {L"log_testing", L"正在测试 localhost:%d ..."},
+        {L"log_test_ok", L"[测试成功] %s"},
+        {L"log_test_fail", L"[测试失败] %s"},
+        {L"log_language_restart", L"语言已应用，正在重新启动程序..."},
+        {L"log_auto_starting", L"已找到打印机配置，正在自动启动服务器..."},
+        {L"log_no_printers_for_autostart", L"目前没有有效的打印机配置，已略过自动启动。"},
+        {L"log_hidden_to_tray", L"窗口已缩到托盘。"},
+        {L"log_startup_added", L"已添加 Windows 开机自动启动。"},
+        {L"log_startup_removed", L"已自 Windows 开机自动启动移除。"},
+        {L"log_startup_add_failed", L"添加 Windows 开机自动启动失败: %s"},
+        {L"log_startup_remove_failed", L"移除 Windows 开机自动启动失败: %s"},
+        {L"web_title", L"PrtEasyServer 打印机配置"},
+        {L"web_eyebrow", L"PRTEASYSERVER SERVICE"},
+        {L"web_heading", L"Windows 网络打印机服务器"},
+        {L"web_intro_1", L"这台 Windows 计算机目前透过 RAW 9100 TCP/IP 端口分享本机打印机。"},
+        {L"web_intro_2", L"请在其他计算机开启这个页面，下载安装 BAT，必要时以系统管理员身分执行。"},
+        {L"web_intro_server_prefix", L"这台服务器目前使用"},
+        {L"web_intro_server_suffix", L"提供打印机安装设置。"},
+        {L"web_intro_download", L"请依照下方每台打印机的端口下载对应安装包，并在客户端执行。"},
+        {L"web_intro_folder", L"配置文件及驱动程序建议放在同个目录以便快速安装。"},
+        {L"web_manual_prefix", L"如需手动 TCP/IP 设置请择一选择:"},
+        {L"web_manual_or", L"或"},
+        {L"web_manual_recommend", L"（建议使用 主机名 来设置，避免 IP 变动时无法连接）"},
+        {L"web_access_url", L"网页入口"},
+        {L"web_server_host", L"服务器主机"},
+        {L"web_host_name", L"主机名"},
+        {L"web_available_count", L"可安装打印机数量"},
+        {L"web_printer_badge", L"打印机%d"},
+        {L"web_driver", L"驱动"},
+        {L"web_raw_port", L"RAW 端口"},
+        {L"web_host", L"主机"},
+        {L"web_download_setup", L"下载配置文件"},
+        {L"web_download_driver", L"下载驱动程序"},
+        {L"web_footer_note", L"注意：下载文件可能会被浏览器阻挡，可点「保留」继续完成下载。"},
+        {L"web_footer_version", L"服务器目前版本："},
+        {L"web_footer_latest", L"查询最新版本请前往："},
+        {L"web_empty_title", L"目前没有打印机配置"},
+        {L"web_empty_body", L"请先在桌面程序新增打印机配置并启动服务器。"},
+    };
+}
+
+
 }  // namespace
 
 LocalizationManager::LocalizationManager()
@@ -263,6 +388,13 @@ bool LocalizationManager::Initialize(const std::wstring& requestedLanguage) {
     if (requestedCode == L"tw") {
         currentLanguage_ = L"tw";
         strings_ = BuildDefaultTraditionalChineseStrings();
+        LoadBundle(currentLanguage_, &strings_);
+        return true;
+    }
+
+    if (requestedCode == L"zh-cn") {
+        currentLanguage_ = L"zh-cn";
+        strings_ = BuildDefaultSimplifiedChineseStrings();
         LoadBundle(currentLanguage_, &strings_);
         return true;
     }
@@ -390,6 +522,9 @@ std::wstring LocalizationManager::DetectDefaultLanguage() {
                 case SUBLANG_CHINESE_HONGKONG:
                 case SUBLANG_CHINESE_MACAU:
                     return L"tw";
+                case SUBLANG_CHINESE_SIMPLIFIED:
+                case SUBLANG_CHINESE_CHINA:
+                    return L"zh-cn";
                 default:
                     break;
             }
@@ -402,7 +537,7 @@ std::wstring LocalizationManager::DetectDefaultLanguage() {
 }
 
 std::vector<std::wstring> LocalizationManager::GetSupportedLanguages() {
-    return {L"tw", L"en"};
+    return {L"tw", L"zh-cn", L"en"};
 }
 
 void LocalizationManager::EnsureDefaultLanguageFiles() const {
@@ -476,8 +611,14 @@ LocalizationManager::StringMap LocalizationManager::BuildDefaultEnglishStrings()
     return BuildBaseEnglishStrings();
 }
 
+
 LocalizationManager::StringMap LocalizationManager::BuildDefaultTraditionalChineseStrings() {
     return BuildBaseTraditionalChineseStrings();
+}
+
+
+LocalizationManager::StringMap LocalizationManager::BuildDefaultSimplifiedChineseStrings() {
+    return BuildBaseSimplifiedChineseStrings();
 }
 
 std::wstring LocalizationManager::SerializeLanguageFile(const StringMap& bundle) {
@@ -511,5 +652,10 @@ std::wstring LocalizationManager::UnescapeFileValue(const std::wstring& value) {
 const LocalizationManager::StringMap& LocalizationManager::GetBuiltInBundle(const std::wstring& code) {
     static const StringMap english = BuildDefaultEnglishStrings();
     static const StringMap traditionalChinese = BuildDefaultTraditionalChineseStrings();
-    return NormalizeLanguageCode(code) == L"tw" ? traditionalChinese : english;
+    static const StringMap simplifiedChinese = BuildDefaultSimplifiedChineseStrings();
+
+    const std::wstring norm = NormalizeLanguageCode(code);
+    if (norm == L"tw") return traditionalChinese;
+    if (norm == L"zh-cn") return simplifiedChinese;
+    return english;
 }
